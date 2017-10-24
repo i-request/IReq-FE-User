@@ -9,22 +9,14 @@ class AddButton extends Component {
 
   render() {
     const itemName = this.props.itemName;
-    const itemPrice = this.props.itemPrice;
+    const itemPrice = '£' + (this.props.itemPrice / 100).toFixed(2)
 
     return (
       <div>
-        <button onClick={() => this.props.handleAddClick(itemName,  itemPrice)}>+</button>
+        <button onClick={() => this.props.handleAddClick(itemName, itemPrice)}>+</button>
       </div>
     );
   }
-
-  // handleAddClick(event) {
-  //   const itemName = this.props.itemName
-  //   const itemPrice = this.props.itemPrice
-  //   console.log(itemName, itemPrice)
-  //   return {name:itemName, price:itemPrice}
-  // }
-
 }
 
 

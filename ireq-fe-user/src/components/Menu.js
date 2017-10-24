@@ -9,25 +9,57 @@ class Menu extends Component {
     super(props);
     this.state = {
       items: [
-        { name: 'Espresso', price: 2 },
-        { name: 'Filtered coffee', price: 2.50 },
-        { name: 'Latte', price: 2.75 },
-        { name: 'Frozen', price: 3 },
+        {
+          type: "drink",
+          name: "large black coffee",
+          extras: [],
+          price: 170,
+          inStock: true,
+          allergens: []
+        },
+        {
+          type: "food",
+          name: "super hot dog",
+          extras: ['cheese'],
+          price: 700,
+          inStock: true,
+          allergens: ['meat', 'dairy', 'egg']
+        },
+        {
+          type: "food",
+          name: "ham and cheese panini",
+          extras: [],
+          price: 550,
+          inStock: true,
+          allergens: ['meat', 'dairy', 'egg']
+        },
+        {
+          type: "drink",
+          name: "large diet coke",
+          extras: [],
+          price: 390,
+          inStock: true,
+          allergens: []
+        },
       ],
-      basquet: []
+      basquet: {}
     }
     this.handleAddClick = this.handleAddClick.bind(this)
   }
 
-  handleAddClick(event, eventPrice) {
-    // console.log(event, eventPrice)
-    // console.log(this.state.basquet)
-    const order = {
-      name: event,
-      price: eventPrice
+  handleAddClick(itemName, itemPrice) {
+    let basquet = this.state.basquet
+
+    let order = {
+      name: itemName,
+      price: itemPrice,
+      quantity: basquet[itemName] ? basquet[itemName].quantity + 1 : 1
     }
+
     this.setState({
-      basquet: this.state.basquet.concat(order)
+      basquet: Object.assign({}, basquet, {
+        [itemName]: order
+      })
     })
   }
 
@@ -39,7 +71,7 @@ class Menu extends Component {
           items={this.state.items}
           handleAddClick={this.handleAddClick}
         />
-        <Basquet basquet={this.state.basquet}/>
+        <Basquet basquet={this.state.basquet} />
       </div>
     );
   }

@@ -6,15 +6,17 @@ class Basquet extends Component {
 
   }
   render() {
-    console.log()
     return (
       <div className='Basquet'>
         <ul>
-          {this.props.basquet.map((product,i) => {
+          {Object.keys(this.props.basquet).map((productName,i) => {
+            const product = this.props.basquet[productName]
+            const quantity = product.quantity;
             return (
               <div key={i}>
                 <li>{product.name}</li>
                 <li>{product.price}</li>
+                <li>{quantity}</li>
               </div>
             )
           })}

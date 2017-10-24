@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import MenuItem from './MenuItem'
 
 class MenuList extends Component {
-constructor (props){
-  super(props);
-}
+  constructor(props) {
+    super(props);
+  }
 
   render() {
     return (

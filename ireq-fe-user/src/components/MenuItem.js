@@ -8,9 +8,12 @@ class MenuItem extends Component {
   }
 
   render() {
+    const itemName = this.props.itemName;
+    const itemPrice = '£' + (this.props.itemPrice / 100).toFixed(2)
     return (
       <div className='MenuItem'>
-        <p>{this.props.itemName}</p> <p>{this.props.ItemPrice}</p>
+        <p>{itemName}</p> <p>{itemPrice}</p>
+
         <AddButton
           itemName={this.props.itemName}
           itemPrice={this.props.itemPrice}
