@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 import MenuItem from './MenuItem'
 
 class MenuList extends Component {
-
+constructor (props){
+  super(props);
+}
 
   render() {
     return (
@@ -13,8 +15,9 @@ class MenuList extends Component {
           {this.props.items.map((item, i) => (
             <li key={i}>
               <MenuItem
-                name={item.name}
-                price={item.price}
+                itemName={item.name}
+                itemPrice={item.price}
+                handleAddClick={this.props.handleAddClick}
               />
             </li>
           ))}
