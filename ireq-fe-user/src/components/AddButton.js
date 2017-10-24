@@ -9,7 +9,7 @@ class AddButton extends Component {
 
   render() {
     const itemName = this.props.itemName;
-    const itemPrice = '£' + (this.props.itemPrice / 100).toFixed(2)
+    const itemPrice = this.props.itemPrice;
 
     return (
       <div>

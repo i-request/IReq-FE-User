@@ -71,7 +71,10 @@ class Menu extends Component {
           items={this.state.items}
           handleAddClick={this.handleAddClick}
         />
-        <Basquet basquet={this.state.basquet} />
+        <Basquet 
+        basquet={this.state.basquet}
+        
+         />
       </div>
     );
   }

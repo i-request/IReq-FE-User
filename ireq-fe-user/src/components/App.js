@@ -10,30 +10,32 @@ import Menu from './Menu'
 class App extends Component {
   constructor(props) {
     super(props);
-    
+
   }
 
   render() {
     return (
       <BrowserRouter>
-        <section>
-          <div className="App">
+        <section className='uk-section uk-section-primary'>
+          <div className="App uk-container">
 
             <header className="App-header">
               <div className="background-image">
-                <img src={headerPic} className="background-image" alt="image" />
+                <img src={headerPic} className="background-image" alt="" />
               </div>
               <h1 className="App-title">Home</h1>
             </header>
             <div>
 
-              <nav>
+              <nav className='uk-navbar .uk-navbar-container'>
                 <Link to='/Menu'>Menu</Link>
                 {' | '}
                 <Link to='/Order'>Order</Link>
               </nav>
-              <Route exact path='/Menu' component={Menu} />
-              <Route path='/Order' component={Order} />
+              <Switch>
+                <Route exact path='/Menu' component={Menu} />
+                <Route path='/Order' component={Order} />
+              </Switch>
             </div>
           </div>
         </section>
@@ -48,11 +50,6 @@ const Order = (props) => (
   </div>
 );
 
-const Home = (props) => (
-  <div className='Home'>
-    <p>Home</p>
-  </div>
-);
 
 
 
