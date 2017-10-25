@@ -4,18 +4,20 @@ import React, { Component } from 'react';
 class AddButton extends Component {
   constructor(props) {
     super(props)
+    this.handleClick = this.handleClick.bind(this)
   }
 
 
   render() {
-    const itemName = this.props.itemName;
-    const itemPrice = this.props.itemPrice;
-
     return (
       <div className='column level-item'>
-        <button onClick={() => this.props.handleAddClick(itemName, itemPrice)}>+</button>
+        <button onClick={this.handleClick}>+</button>
       </div>
     );
+  }
+  
+  handleClick(){
+    this.props.handleAddClick(this.props.itemName, this.props.itemPrice);
   }
 }
 

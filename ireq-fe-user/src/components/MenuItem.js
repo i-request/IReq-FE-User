@@ -13,7 +13,7 @@ class MenuItem extends Component {
     return (
       <div className='MenuItem level-item'>
         <li className='column'>{itemName}</li>
-        <li  className='column'>{itemPrice}</li>
+        <li className='column'>{itemPrice}</li>
 
         <AddButton
           itemName={this.props.itemName}
