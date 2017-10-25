@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class Basquet extends Component {
+class Basket extends Component {
   constructor(props) {
     super(props);
 
@@ -8,7 +8,7 @@ class Basquet extends Component {
   render() {
     let total = 0;
     return (
-      <div className='Basquet'>
+      <div className='Basket box column is-one-third'>
         <ul>
           {Object.keys(this.props.basquet).map((productName, i) => {
             const product = this.props.basquet[productName]
@@ -16,11 +16,11 @@ class Basquet extends Component {
             let subtotal = quantity * product.price;
             total += quantity * product.price
             return (
-              <div key={i}>
-                <li>{product.name}</li>
-                <li>{product.price}</li>
-                <li>{quantity}</li>
-                <li>Sub-total: {'£' + (quantity * product.price / 100).toFixed(2)}</li>
+              <div key={i} className='level'>
+                <li className='level-item'>{product.name}</li>
+                <li className='level-item'>{product.price}</li>
+                <li className='level-item'>{quantity}</li>
+                <li className='level-item'>Sub-total: {'£' + (quantity * product.price / 100).toFixed(2)}</li>
 
               </div>
             )
@@ -34,4 +34,4 @@ class Basquet extends Component {
   }
 }
 
-export default Basquet;
+export default Basket;

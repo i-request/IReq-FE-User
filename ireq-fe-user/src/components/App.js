@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 import headerPic from '../images/coffee-Background.jpg';
 
-import '../App.css';
+import './App.css';
 
 import Menu from './Menu'
 
@@ -16,31 +16,35 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <section className='section '>
-          <div className="App container box">
+        <section id='main-section' className='section background-image'>
+      
+          <nav className="navbar" role="navigation" aria-label="main navigation">
+            <div className="navbar-brand">
 
-            <header className="App-header">
-              <div className="background-image">
-                <img src={headerPic} className="background-image" alt="" />
-              </div>
-              <h1 className="App-title">Home</h1>
-            </header>
+              <Link className='navbar-item' to='/Menu'>Menu</Link>
+              <Link  className='navbar-item'to='/Order'>Order</Link>
 
+              <button className="button navbar-burger">
+                <span></span>
+                <span></span>
+                <span></span>
+              </button>
+            </div>
+          </nav>
+
+
+
+
+          <div className="App">
             <div>
 
-
-
-              <nav className='navbar'>
-                <Link to='/Menu'>Menu</Link>
-                {' | '}
-                <Link to='/Order'>Order</Link>
-              </nav>
               <Switch>
                 <Route exact path='/Menu' component={Menu} />
                 <Route path='/Order' component={Order} />
               </Switch>
             </div>
           </div>
+
         </section>
       </BrowserRouter>
     );
