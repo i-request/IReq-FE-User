@@ -66,7 +66,8 @@ class Menu extends Component {
 
   render() {
     return (
-      <div className='Menu'>
+      <div className='section'>
+      <div className='Menu container box'>
         <MenuList
           items={this.state.items}
           handleAddClick={this.handleAddClick}
@@ -75,6 +76,7 @@ class Menu extends Component {
         basquet={this.state.basquet}
         
          />
+      </div>
       </div>
     );
   }
