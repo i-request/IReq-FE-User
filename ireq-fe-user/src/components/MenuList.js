@@ -9,19 +9,23 @@ class MenuList extends Component {
 
   render() {
     return (
-      <div className='List container box'>
+      <div className='MenuList section box is-two-thirds'>
         <h1>Menu List</h1>
+        <div className='DecorativeList container box column'>
         <ul>
           {this.props.items.map((item, i) => (
-            <li key={i}>
+          <div className='level columns' key={i}>
+
               <MenuItem
                 itemName={item.name}
                 itemPrice={item.price}
                 handleAddClick={this.props.handleAddClick}
               />
-            </li>
+           
+            </div>
           ))}
         </ul>
+        </div>
       </div>
     );
   }

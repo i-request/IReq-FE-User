@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import MenuList from './MenuList';
-import Basquet from './Basquet'
+import Basket from './Basket'
 
 
 class Menu extends Component {
@@ -66,18 +66,18 @@ class Menu extends Component {
 
   render() {
     return (
-      <div className='section'>
-      <div className='Menu container box'>
-        <MenuList
-          items={this.state.items}
-          handleAddClick={this.handleAddClick}
-        />
-        <Basquet 
-        basquet={this.state.basquet}
-        
-         />
-      </div>
-      </div>
+ 
+
+        <div className='Menu columns'>
+          <MenuList
+            items={this.state.items}
+            handleAddClick={this.handleAddClick}
+          />
+          <Basket
+            basquet={this.state.basquet}
+          />
+        </div>
+      
     );
   }
 }

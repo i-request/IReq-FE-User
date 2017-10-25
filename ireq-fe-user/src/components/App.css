@@ -1,0 +1,45 @@
+.background-image {
+  background-image: url(../images/coffee-Background.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+}
+
+#main-section {
+  padding: 0px;
+}
+.test {
+  padding: 100px
+}
+
+.Menu {
+  width: 100vw;
+  min-height: 70vh;
+padding: 20px
+}
+
+.Basket {
+height: 70vh;
+overflow-y: scroll;
+margin-left: 20px 
+}
+
+.Basket li {
+  font-size: 15px
+}
+.MenuList {
+  overflow-y: scroll;
+  height: 70vh;
+  background-color: gray;
+}
+.DecorativeList {
+  opacity: 0.6;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) { 
+  .Basket {
+    margin: 0px;
+  }
+}
