@@ -9,7 +9,7 @@ class MenuList extends Component {
 
   render() {
     return (
-      <div className='List'>
+      <div className='List container box'>
         <h1>Menu List</h1>
         <ul>
           {this.props.items.map((item, i) => (
@@ -21,7 +21,6 @@ class MenuList extends Component {
               />
             </li>
           ))}
-
         </ul>
       </div>
     );

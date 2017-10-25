@@ -11,7 +11,7 @@ class MenuItem extends Component {
     const itemName = this.props.itemName;
     const itemPrice = '£' + (this.props.itemPrice / 100).toFixed(2)
     return (
-      <div className='MenuItem'>
+      <div className='MenuItem container box'>
         <p>{itemName}</p> <p>{itemPrice}</p>
 
         <AddButton
