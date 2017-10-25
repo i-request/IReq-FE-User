@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Basket extends Component {
   constructor(props) {
     super(props);
-    
+    this.handleClick = this.handleClick.bind(this);
   }
 
   render() {
@@ -27,14 +27,16 @@ class Basket extends Component {
           })}
           <div className='level'>
             <li className='level-item'>Total: {'£' + (total / 100).toFixed(2)}</li>
-            <button className='level-item'>Submit</button>
+            <button onClick={this.handleClick} className='level-item'>Submit</button>
           </div>
         </ul>
       </div>
     );
   }
 
-
+  handleClick() {
+    this.props.handleSubmitButton()
+  }
 
 }
 

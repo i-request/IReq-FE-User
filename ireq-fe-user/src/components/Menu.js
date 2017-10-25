@@ -12,6 +12,7 @@ class Menu extends Component {
       basquet: {}
     }
     this.handleAddClick = this.handleAddClick.bind(this)
+    this.handleSubmitButton = this.handleSubmitButton.bind(this);
   }
 
   componentDidMount() {
@@ -47,6 +48,20 @@ class Menu extends Component {
     })
   }
 
+  handleSubmitButton(event) {
+    let newOrder = Object.values(this.state.basquet)
+    console.log(newOrder)
+
+    if (Object.keys(this.state.basquet).length > 0) {
+      this.submitTicket(newOrder)
+      this.setState({
+        basquet: {}
+      })
+    }
+
+    console.log('There is nothing in the basquet!')
+  }
+
   fetchProducts() {
     axios.get('http://localhost:9007/products')
       .then((response) => {
@@ -56,6 +71,21 @@ class Menu extends Component {
         })
       })
       .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  submitTicket(newOrder) {
+    axios.post('http://localhost:9007/tickets',
+      {
+        delivery: true,
+        order_content: newOrder,
+        message: 'this is the ticket',
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
         console.log(error);
       });
   }
