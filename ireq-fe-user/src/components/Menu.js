@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import axios from 'axios';
 import MenuList from './MenuList';
 import Basket from './Basket'
 
@@ -8,54 +8,38 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      items: [
-        {
-          type: "drink",
-          name: "large black coffee",
-          extras: [],
-          price: 170,
-          inStock: true,
-          allergens: []
-        },
-        {
-          type: "food",
-          name: "super hot dog",
-          extras: ['cheese'],
-          price: 700,
-          inStock: true,
-          allergens: ['meat', 'dairy', 'egg']
-        },
-        {
-          type: "food",
-          name: "ham and cheese panini",
-          extras: [],
-          price: 550,
-          inStock: true,
-          allergens: ['meat', 'dairy', 'egg']
-        },
-        {
-          type: "drink",
-          name: "large diet coke",
-          extras: [],
-          price: 390,
-          inStock: true,
-          allergens: []
-        },
-      ],
+      items: [],
       basquet: {}
     }
     this.handleAddClick = this.handleAddClick.bind(this)
   }
 
+  componentDidMount() {
+    this.fetchProducts()
+  }
+
+  render() {
+    return (
+      <div className='Menu columns'>
+        <MenuList
+          items={this.state.items}
+          handleAddClick={this.handleAddClick}
+        />
+        <Basket
+          basquet={this.state.basquet}
+          handleSubmitButton={this.handleSubmitButton}
+        />
+      </div>
+    );
+  }
+
   handleAddClick(itemName, itemPrice) {
     let basquet = this.state.basquet
-
     let order = {
       name: itemName,
       price: itemPrice,
       quantity: basquet[itemName] ? basquet[itemName].quantity + 1 : 1
     }
-
     this.setState({
       basquet: Object.assign({}, basquet, {
         [itemName]: order
@@ -63,22 +47,20 @@ class Menu extends Component {
     })
   }
 
-
-  render() {
-    return (
- 
-
-        <div className='Menu columns'>
-          <MenuList
-            items={this.state.items}
-            handleAddClick={this.handleAddClick}
-          />
-          <Basket
-            basquet={this.state.basquet}
-          />
-        </div>
-      
-    );
+  fetchProducts() {
+    axios.get('http://localhost:9007/products')
+      .then((response) => {
+        // console.log(response.data);
+        this.setState({
+          items: response.data
+        })
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
+
 }
+
+
 export default Menu;

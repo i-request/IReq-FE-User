@@ -3,8 +3,9 @@ import React, { Component } from 'react';
 class Basket extends Component {
   constructor(props) {
     super(props);
-
+    
   }
+
   render() {
     let total = 0;
     return (
@@ -14,7 +15,6 @@ class Basket extends Component {
           {Object.keys(this.props.basquet).map((productName, i) => {
             const product = this.props.basquet[productName]
             const quantity = product.quantity;
-            let subtotal = quantity * product.price;
             total += quantity * product.price
             return (
               <div key={i} className='level columns'>
@@ -22,17 +22,20 @@ class Basket extends Component {
                 <li className='level-item column'>{'£' + (product.price / 100).toFixed(2)}</li>
                 <li className='level-item column'>{quantity}</li>
                 <li className='level-item column'>{'£' + (quantity * product.price / 100).toFixed(2)}</li>
-
               </div>
             )
           })}
-          <div>
-            <li>Total: {'£' + (total / 100).toFixed(2)}</li>
+          <div className='level'>
+            <li className='level-item'>Total: {'£' + (total / 100).toFixed(2)}</li>
+            <button className='level-item'>Submit</button>
           </div>
         </ul>
       </div>
     );
   }
+
+
+
 }
 
 export default Basket;
