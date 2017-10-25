@@ -10,17 +10,18 @@ class Basket extends Component {
     return (
       <div className='Basket box column is-one-third'>
         <ul>
+
           {Object.keys(this.props.basquet).map((productName, i) => {
             const product = this.props.basquet[productName]
             const quantity = product.quantity;
             let subtotal = quantity * product.price;
             total += quantity * product.price
             return (
-              <div key={i} className='level'>
-                <li className='level-item'>{product.name}</li>
-                <li className='level-item'>{product.price}</li>
-                <li className='level-item'>{quantity}</li>
-                <li className='level-item'>Sub-total: {'£' + (quantity * product.price / 100).toFixed(2)}</li>
+              <div key={i} className='level columns'>
+                <li className='level-item column is-half'>{product.name}</li>
+                <li className='level-item column'>{'£' + (product.price / 100).toFixed(2)}</li>
+                <li className='level-item column'>{quantity}</li>
+                <li className='level-item column'>{'£' + (quantity * product.price / 100).toFixed(2)}</li>
 
               </div>
             )

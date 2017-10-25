@@ -10,25 +10,36 @@
   padding: 0px;
 }
 .test {
-  opacity: 0.5;
+  padding: 100px
 }
 
 .Menu {
-  position: fixed;
-  bottom: 0;
   width: 100vw;
   min-height: 70vh;
 padding: 20px
 }
 
 .Basket {
-
 height: 70vh;
 overflow-y: scroll;
 margin-left: 20px 
 }
 
+.Basket li {
+  font-size: 15px
+}
 .MenuList {
-
+  overflow-y: scroll;
   height: 70vh;
+  background-color: gray;
+}
+.DecorativeList {
+  opacity: 0.6;
+  max-width: 100%;
+}
+
+@media (max-width: 768px) { 
+  .Basket {
+    margin: 0px;
+  }
 }

@@ -12,7 +12,7 @@ class AddButton extends Component {
     const itemPrice = this.props.itemPrice;
 
     return (
-      <div>
+      <div className='column level-item'>
         <button onClick={() => this.props.handleAddClick(itemName, itemPrice)}>+</button>
       </div>
     );
