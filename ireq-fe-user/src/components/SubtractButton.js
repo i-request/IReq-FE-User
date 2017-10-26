@@ -15,8 +15,8 @@ class SubtractButton extends Component {
       </div>
     );
   }
-  
-  handleClick(){
+
+  handleClick() {
     this.props.handleSubtractButton(this.props.itemName)
   }
 }
