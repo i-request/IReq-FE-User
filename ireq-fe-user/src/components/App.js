@@ -5,6 +5,7 @@ import axios from 'axios'
 import './App.css';
 
 import Menu from './Menu'
+import Checkout from './Checkout'
 
 class App extends Component {
   constructor(props) {
@@ -33,8 +34,8 @@ class App extends Component {
           <nav className="navbar" aria-label="main navigation">
             <div className="navbar-brand">
 
-              <Link className='navbar-item' to='/Menu'>Menu</Link>
-              <Link className='navbar-item' to='/Order'>Order</Link>
+              <Link className='navbar-item' to='/menu'>Menu</Link>
+              <Link className='navbar-item' to='/Checkout'>Checkout</Link>
 
               <button className="button navbar-burger">
                 <span></span>
@@ -48,8 +49,8 @@ class App extends Component {
             <div>
 
               <Switch>
-                <Route exact path='/Menu' component={Menu} />
-                <Route path='/Order' component={Order} />
+                <Route exact path='/menu' component={Menu} />
+                <Route path='/Checkout' component={Checkout} />
               </Switch>
             </div>
           </div>
