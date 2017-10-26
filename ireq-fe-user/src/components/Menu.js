@@ -13,6 +13,7 @@ class Menu extends Component {
     }
     this.handleAddClick = this.handleAddClick.bind(this)
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
+    this.handleSubtractButton = this.handleSubtractButton.bind(this)
   }
 
   componentDidMount() {
@@ -29,12 +30,14 @@ class Menu extends Component {
         <Basket
           basquet={this.state.basquet}
           handleSubmitButton={this.handleSubmitButton}
+          handleSubtractButton={this.handleSubtractButton}
         />
       </div>
     );
   }
 
   handleAddClick(itemName, itemPrice) {
+    console.log(this.state.basquet)
     let basquet = this.state.basquet
     let order = {
       name: itemName,
@@ -46,11 +49,45 @@ class Menu extends Component {
         [itemName]: order
       })
     })
+
+  }
+
+  handleSubtractButton(itemName) {
+    let basquet = this.state.basquet
+    let quantity = this.state.basquet[itemName].quantity
+    let price = this.state.basquet[itemName].price
+    let name = itemName
+
+    let order = {
+      name: itemName,
+      price: price,
+      quantity: quantity - 1
+    }
+
+    var newState = {}
+    if (order.quantity < 0) {
+      for (let key in basquet) {
+        if (key === itemName) return;
+        else {
+          newState[key] = basquet[key]
+        }
+      }
+      this.setState({
+        basquet: newState
+      })
+    }
+    else {
+      this.setState({
+        basquet: Object.assign({}, basquet, {
+          [itemName]: order
+        })
+      })
+    }
   }
 
   handleSubmitButton(event) {
     let newOrder = Object.values(this.state.basquet)
-    console.log(newOrder)
+    console.log(newOrder)//Tracking changes/
 
     if (Object.keys(this.state.basquet).length > 0) {
       this.submitTicket(newOrder)
