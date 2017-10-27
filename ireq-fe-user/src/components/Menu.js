@@ -37,7 +37,6 @@ class Menu extends Component {
   }
 
   handleAddClick(itemName, itemPrice) {
-    console.log(this.state.basquet)
     let basquet = this.state.basquet
     let order = {
       name: itemName,
@@ -56,7 +55,6 @@ class Menu extends Component {
     let basquet = this.state.basquet
     let quantity = this.state.basquet[itemName].quantity
     let price = this.state.basquet[itemName].price
-    let name = itemName
 
     let order = {
       name: itemName,
@@ -85,20 +83,7 @@ class Menu extends Component {
     }
   }
 
-  handleSubmitButton(event) {
-    let newOrder = Object.values(this.state.basquet)
-    console.log(newOrder)//Tracking changes/
 
-    if (Object.keys(this.state.basquet).length > 0) {
-      this.submitTicket(newOrder)
-      this.setState({
-        basquet: {}
-      })
-    }
-
-    console.log('There is nothing in the basquet!')
-    return;
-  }
 
   fetchProducts() {
     axios.get('http://localhost:9007/products')
@@ -113,6 +98,20 @@ class Menu extends Component {
       });
   }
 
+  handleSubmitButton(event) {
+    let newOrder = Object.values(this.state.basquet)
+    console.log(newOrder)//Tracking changes/
+
+    if (Object.keys(this.state.basquet).length > 0) {
+      this.submitTicket(newOrder)
+      this.setState({
+        basquet: {}
+      })
+    }
+
+    console.log('There is nothing in the basquet!')
+  }
+
   submitTicket(newOrder) {
     axios.post('http://localhost:9007/tickets',
       {
@@ -120,10 +119,10 @@ class Menu extends Component {
         order_content: newOrder,
         message: 'this is the ticket',
       })
-      .then(function (response) {
+      .then( (response) => {
         console.log(response);
       })
-      .catch(function (error) {
+      .catch( (error) => {
         console.log(error);
       });
   }

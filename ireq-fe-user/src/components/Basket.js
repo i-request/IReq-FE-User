@@ -19,7 +19,7 @@ class Basket extends Component {
             const product = this.props.basquet[productName]
             const quantity = product.quantity;
             total += quantity * product.price
-            if (quantity === 0) return;
+            if (quantity >= 1){ 
             return (
               <div key={i} className='level columns'>
                 <li className='level-item column is-half'>{product.name}</li>
@@ -30,16 +30,17 @@ class Basket extends Component {
                   itemName={product.name}
                   handleSubtractButton={this.props.handleSubtractButton}
                 />
-              <Checkout 
-              itemName={product.name}
-              
-              />
+
               </div>
-            )
+            )}
           })}
           <div className='level'>
             <li className='level-item'>Total: {'£' + (total / 100).toFixed(2)}</li>
-            <button onClick={this.handleClick} className='level-item'>Submit</button>
+            <Checkout className='level-item'
+            name={'iRequest'}
+            description={'Enjoy your food!'}
+            amount={total}
+            sendTicket={this.handleClick} />
           </div>
         </ul>
       </div>

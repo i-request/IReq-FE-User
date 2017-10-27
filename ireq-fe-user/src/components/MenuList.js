@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 import MenuItem from './MenuItem'
 
 class MenuList extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     return (
@@ -21,7 +19,6 @@ class MenuList extends Component {
                   itemPrice={item.price}
                   handleAddClick={this.props.handleAddClick}
                 />
-
               </div>
             ))}
           </ul>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
-import axios from 'axios'
+
 
 import './App.css';
 
@@ -8,23 +8,8 @@ import Menu from './Menu'
 import Checkout from './Checkout'
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
 
-  componentDidMount() {
-    this.fetchStatus();
-  }
 
-  fetchStatus() {
-    axios.get('http://localhost:9007/')
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-  }
 
   render() {
     return (
@@ -61,10 +46,5 @@ class App extends Component {
   }
 }
 
-const Order = (props) => (
-  <div className='Order'>
-    <p>Order</p>
-  </div>
-);
 
 export default App;

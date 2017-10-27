@@ -1,47 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
 
 import STRIPE_PUBLISHABLE from '../constants/stripe';
 import PAYMENT_SERVER_URL from '../constants/server';
 
-
 const CURRENCY = 'GBP';
 
-const fromPoundToPens = amount => amount * 100;
+const fromPoundToPens = amount => amount;
   
-function submitTicket(newOrder) {
-  axios.post('http://localhost:9007/tickets',
-    {
-      delivery: true,
-      order_content: newOrder,
-      message: 'this is the ticket',
-    })
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
-}
-
 const successPayment = data => {
-  submitTicket({
-    type: "food",
-    name: "super hot dog",
-    extras: [],
-    price: 700,
-    inStock: true,
-    allergens: ['meat', 'dairy', 'egg']
-  })
   alert('Payment Successful');
+  console.log(data)
 };
 
 const errorPayment = data => {
   alert('Payment error');
+  console.log(data )
 };
 
-const onToken = (amount, description) => token =>
+const onToken = ( amount, description, sendTicket) => token =>
 axios.post(PAYMENT_SERVER_URL,
   {
     description,
@@ -50,14 +28,15 @@ axios.post(PAYMENT_SERVER_URL,
     amount: fromPoundToPens(amount)
   })
   .then(successPayment)
+  .then(sendTicket)
   .catch(errorPayment);
 
-const Checkout = ({ name, description, amount }) =>
+const Checkout = ({name, description, amount, sendTicket }) =>
 <StripeCheckout
   name={name}
   description={description}
   amount={fromPoundToPens(amount)}
-  token={onToken(amount, description)}
+  token={onToken(amount, description, sendTicket)}
   currency={CURRENCY}
   stripeKey={STRIPE_PUBLISHABLE}
 />

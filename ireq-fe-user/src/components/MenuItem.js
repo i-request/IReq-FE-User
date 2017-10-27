@@ -3,9 +3,7 @@ import React, { Component } from 'react';
 import AddButton from './AddButton';
 
 class MenuItem extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     const itemName = this.props.itemName;
