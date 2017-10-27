@@ -7,8 +7,7 @@ class MenuList extends Component {
 
   render() {
     return (
-      <div className='MenuList section box is-two-thirds'>
-        <h1>Menu List</h1>
+      <div className='MenuList container box is-two-thirds'>
         <div className='DecorativeList container box column'>
           <ul>
             {this.props.items.map((item, i) => (
@@ -17,6 +16,7 @@ class MenuList extends Component {
                 <MenuItem
                   itemName={item.name}
                   itemPrice={item.price}
+                  itemDescription={item.description}
                   handleAddClick={this.props.handleAddClick}
                 />
               </div>
