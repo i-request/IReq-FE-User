@@ -21,6 +21,7 @@ class Menu extends Component {
   }
 
   render() {
+    // console.log(this.state.basquet)
     return (
       <div className='Menu columns'>
         <MenuList
@@ -88,7 +89,7 @@ class Menu extends Component {
   fetchProducts() {
     axios.get('http://localhost:9007/products')
       .then((response) => {
-        // console.log(response.data);
+        console.log(response.data);
         this.setState({
           items: response.data
         })
