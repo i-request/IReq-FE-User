@@ -10,7 +10,30 @@ const CURRENCY = 'GBP';
 
 const fromPoundToPens = amount => amount * 100;
   
+function submitTicket(newOrder) {
+  axios.post('http://localhost:9007/tickets',
+    {
+      delivery: true,
+      order_content: newOrder,
+      message: 'this is the ticket',
+    })
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+}
+
 const successPayment = data => {
+  submitTicket({
+    type: "food",
+    name: "super hot dog",
+    extras: [],
+    price: 700,
+    inStock: true,
+    allergens: ['meat', 'dairy', 'egg']
+  })
   alert('Payment Successful');
 };
 

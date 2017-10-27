@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 
 import SubtractButton from './SubtractButton'
+import Checkout from './Checkout';
 
 class Basket extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
-
-
   }
 
   render() {
@@ -31,7 +30,10 @@ class Basket extends Component {
                   itemName={product.name}
                   handleSubtractButton={this.props.handleSubtractButton}
                 />
-
+              <Checkout 
+              itemName={product.name}
+              
+              />
               </div>
             )
           })}

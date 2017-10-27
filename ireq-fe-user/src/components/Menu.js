@@ -97,6 +97,7 @@ class Menu extends Component {
     }
 
     console.log('There is nothing in the basquet!')
+    return;
   }
 
   fetchProducts() {
