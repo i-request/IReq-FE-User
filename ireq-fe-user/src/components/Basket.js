@@ -34,9 +34,9 @@ class Basket extends Component {
               </div>
             )}
           })}
-          <div className='level'>
+          <div className='total level'>
             <li className='level-item'>Total: {'£' + (total / 100).toFixed(2)}</li>
-            <Checkout className='level-item'
+            <Checkout className='level-item level-end'
             name={'iRequest'}
             description={'Enjoy your food!'}
             amount={total}

@@ -18,9 +18,9 @@ class App extends Component {
 
           <nav className="navbar" aria-label="main navigation">
             <div className="navbar-brand">
-
+              <Link className='navbar-item' to='/'>Home</Link>
+              <Link className='navbar-item' to='/about'>About</Link>
               <Link className='navbar-item' to='/menu'>Menu</Link>
-              <Link className='navbar-item' to='/Checkout'>Checkout</Link>
 
               <button className="button navbar-burger">
                 <span></span>
@@ -34,8 +34,9 @@ class App extends Component {
             <div>
 
               <Switch>
-                <Route exact path='/menu' component={Menu} />
-                <Route path='/Checkout' component={Checkout} />
+              <Route exact path='/about' component={About} />
+                <Route exact path='/' component={Home} />
+                <Route path='/menu' component={Menu} />
               </Switch>
             </div>
           </div>
@@ -46,5 +47,11 @@ class App extends Component {
   }
 }
 
+const Home = (props) => (
+  <div>Home</div>
+)
 
+const About = (props) => (
+  <div>About</div>
+)
 export default App;

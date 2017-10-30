@@ -9,24 +9,44 @@ class Menu extends Component {
     super(props);
     this.state = {
       items: [],
-      basquet: {}
+      basquet: {},
+      currentChoice: 'hot drink'
     }
-    this.handleAddClick = this.handleAddClick.bind(this)
+    this.handleAddClick = this.handleAddClick.bind(this);
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
-    this.handleSubtractButton = this.handleSubtractButton.bind(this)
+    this.handleSubtractButton = this.handleSubtractButton.bind(this);
+    this.handleDrinkChange = this.handleDrinkChange.bind(this);
   }
+
+
+  handleDrinkChange(event) {
+    console.log(event.target.value)
+    this.setState({
+      currentChoice: event.target.value
+    });
+  
+  }
+
+  itemsFilter(items) {
+    return items.filter((item) => {
+      return item.type === this.state.currentChoice
+    });
+  }
+  
 
   componentDidMount() {
     this.fetchProducts()
   }
 
   render() {
+    console.log(this.state.filtered)
     // console.log(this.state.basquet)
     return (
       <div className='Menu columns'>
         <MenuList
-          items={this.state.items}
+          items={this.itemsFilter(this.state.items)}
           handleAddClick={this.handleAddClick}
+          handleDrinkChange={this.handleDrinkChange}
         />
         <Basket
           basquet={this.state.basquet}
@@ -120,10 +140,10 @@ class Menu extends Component {
         order_content: newOrder,
         message: 'this is the ticket',
       })
-      .then( (response) => {
+      .then((response) => {
         console.log(response);
       })
-      .catch( (error) => {
+      .catch((error) => {
         console.log(error);
       });
   }
