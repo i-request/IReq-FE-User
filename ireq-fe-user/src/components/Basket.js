@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-
 import SubtractButton from './SubtractButton'
 import Checkout from './Checkout';
+import CheckoutModal from './CheckoutModal'
+
 
 class Basket extends Component {
   constructor(props) {
@@ -41,13 +42,23 @@ class Basket extends Component {
             description={'Enjoy your food!'}
             amount={total}
             sendTicket={this.handleClick} />
+            <CheckoutModal
+            name={'iRequest'}
+            description={'Enjoy your food!'}
+            amount={total}
+            sendTicket={this.handleClick}
+            />
           </div>
+         
+
         </ul>
       </div>
     );
   }
 
-  handleClick() {
+  handleClick(e) {
+    e.preventDefault()
+
     this.props.handleSubmitButton()
   }
 

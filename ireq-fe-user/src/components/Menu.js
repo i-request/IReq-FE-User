@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MenuList from './MenuList';
 import Basket from './Basket'
+import CheckoutModal from './CheckoutModal'
 
 class Menu extends Component {
   constructor(props) {
@@ -111,7 +112,7 @@ class Menu extends Component {
   }
 
   fetchProducts() {
-    axios.get('http://localhost:9007/products')
+   return axios.get('http://localhost:9007/products')
       .then((response) => {
         console.log(response.data);
         this.setState({

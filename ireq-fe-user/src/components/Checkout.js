@@ -5,6 +5,9 @@ import StripeCheckout from 'react-stripe-checkout';
 import STRIPE_PUBLISHABLE from '../constants/stripe';
 import PAYMENT_SERVER_URL from '../constants/server';
 
+
+
+
 const CURRENCY = 'GBP';
 
 const fromPoundToPens = amount => amount;
@@ -32,6 +35,7 @@ axios.post(PAYMENT_SERVER_URL,
   .catch(errorPayment);
 
 const Checkout = ({name, description, amount, sendTicket }) =>
+<div>
 <StripeCheckout
   name={name}
   description={description}
@@ -40,6 +44,7 @@ const Checkout = ({name, description, amount, sendTicket }) =>
   currency={CURRENCY}
   stripeKey={STRIPE_PUBLISHABLE}
 />
+</div>
 
 
 
