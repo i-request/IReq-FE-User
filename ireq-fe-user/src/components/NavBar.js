@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {NavLink} from 'react-router-dom'
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom'
 
 class NavBar extends Component {
   render() {
@@ -21,10 +21,7 @@ class NavBar extends Component {
                 <NavLink to='/about' className="link-anchor">About</NavLink>
               </li>
               <li className="nav-li">
-                <NavLink to='/home' className="link-anchor">Menu</NavLink>
-              </li>
-              <li className="nav-li">
-                <NavLink to='/home' className="link-anchor basket-nav-item">Basket</NavLink>
+                <NavLink to='/menu' className="link-anchor">Menu</NavLink>
               </li>
             </ul>
           </div>

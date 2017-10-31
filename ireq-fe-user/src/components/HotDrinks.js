@@ -19,10 +19,12 @@ class HotDrinks extends Component {
           <div className="col-md-7 right-side-menu-items">
             <div className="menu-items-inner">
               <div className="flex-container-child">
+
                 <div className="product-div-inner-section">
                   <img src="../images/cappauccino.jpg" className="inner-product-img" alt="Breakfast"/>
                   <h3 className="inner-item-description">Cappauccino</h3>
                 </div>
+                
                 <div className="product-div-inner-section">
                   <img src="../images/coffee-latte.jpg" className="inner-product-img" alt="Breakfast"/>
                   <h3 className="inner-item-description">Coffee Latte</h3>
