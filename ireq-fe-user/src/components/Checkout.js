@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import StripeCheckout from 'react-stripe-checkout';
+import { Redirect } from 'react-router-dom';
 
 import STRIPE_PUBLISHABLE from '../constants/stripe';
 import PAYMENT_SERVER_URL from '../constants/server';
@@ -10,7 +11,7 @@ const CURRENCY = 'GBP';
 const fromPoundToPens = amount => amount;
   
 const successPayment = data => {
-  alert('Payment Successful');
+<Redirect from='/menu' to='/success'/>
   console.log(data)
 };
 
