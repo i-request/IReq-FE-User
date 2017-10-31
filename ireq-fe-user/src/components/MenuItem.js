@@ -16,7 +16,7 @@ class MenuItem extends Component {
           className="inner-product-img" alt="" />
 
         <li className='inner-item-description'>{itemName}</li>
-        <li className='inner-item-description'>-*{itemDescription}*-</li>
+        {<li className='inner-item-description'>{itemDescription}</li>}
 
         <li className='inner-item-description '>{itemPrice}</li>
 
