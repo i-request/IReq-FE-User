@@ -3,7 +3,6 @@ import axios from 'axios';
 import MenuList from './MenuList';
 import Basket from './Basket'
 
-
 class Menu extends Component {
   constructor(props) {
     super(props);
@@ -18,43 +17,52 @@ class Menu extends Component {
     this.handleDrinkChange = this.handleDrinkChange.bind(this);
   }
 
+  componentDidMount() {
+    this.fetchProducts()
+  }
+
+  render() {
+    return (
+      <div className="conatiner-fluid main-container">
+        <div className="row row-no-padding-margin">
+          <div className="col-md-5 left-side-menu-location">
+            <Basket
+              basquet={this.state.basquet}
+              handleSubmitButton={this.handleSubmitButton}
+              handleSubtractButton={this.handleSubtractButton}
+            />
+          </div>
+
+          <div className="col-md-7 right-side-menu-items">
+            <div className="menu-items">
+              <MenuList
+                items={this.itemsFilter(this.state.items)}
+                handleAddClick={this.handleAddClick}
+                handleDrinkChange={this.handleDrinkChange}
+              />
+            </div>
+            <div className="flex-items-footer">
+              <p className="items-footer-text">
+                © Copyright 2017. All Rights Reserved. I-Request
+            </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   handleDrinkChange(event) {
     console.log(event.target.value)
     this.setState({
       currentChoice: event.target.value
     });
-  
   }
 
   itemsFilter(items) {
     return items.filter((item) => {
       return item.type === this.state.currentChoice
     });
-  }
-  
-
-  componentDidMount() {
-    this.fetchProducts()
-  }
-
-  render() {
-    console.log(this.state.filtered)
-    // console.log(this.state.basquet)
-    return (
-      <div className='Menu columns'>
-        <MenuList
-          items={this.itemsFilter(this.state.items)}
-          handleAddClick={this.handleAddClick}
-          handleDrinkChange={this.handleDrinkChange}
-        />
-        <Basket
-          basquet={this.state.basquet}
-          handleSubmitButton={this.handleSubmitButton}
-          handleSubtractButton={this.handleSubtractButton}
-        />
-      </div>
-    );
   }
 
   handleAddClick(itemName, itemPrice) {
@@ -69,14 +77,12 @@ class Menu extends Component {
         [itemName]: order
       })
     })
-
   }
 
   handleSubtractButton(itemName) {
     let basquet = this.state.basquet
     let quantity = this.state.basquet[itemName].quantity
     let price = this.state.basquet[itemName].price
-
     let order = {
       name: itemName,
       price: price,
@@ -100,11 +106,9 @@ class Menu extends Component {
         basquet: Object.assign({}, basquet, {
           [itemName]: order
         })
-      })
+      });
     }
   }
-
-
 
   fetchProducts() {
     axios.get('http://localhost:9007/products')
@@ -147,7 +151,6 @@ class Menu extends Component {
         console.log(error);
       });
   }
-
 }
 
 

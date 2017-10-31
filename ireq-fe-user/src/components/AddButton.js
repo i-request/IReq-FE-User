@@ -10,7 +10,7 @@ class AddButton extends Component {
 
   render() {
     return (
-      <div className='column level-item'>
+      <div className='inner-item-description'>
         <button onClick={this.handleClick}>+</button>
       </div>
     );

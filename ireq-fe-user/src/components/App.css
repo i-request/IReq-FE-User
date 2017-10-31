@@ -1,66 +1,330 @@
-.background-image {
-  background-image: url(../images/coffee-Background.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  min-height: 100vh;
+html {
+  height: 100%;
+  box-sizing: border-box;
 }
 
-#main-section {
-  padding: 0px;
-}
-.test {
-  padding: 100px
-}
-
-.Menu {
-  width: 100vw;
-  min-height: 70vh;
-padding: 20px
+a {
+  color: #000;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  line-height: 1;
 }
 
-.Basket {
-height: 70vh;
-overflow-y: scroll;
-margin-left: 20px;
-margin-top: 200px;
-padding: 40px;
-}
-
-.Basket .total {
-  position: absolute;
-  top: 85%;
-
-}
-
-.Basket li {
-  font-size: 15px
-}
-
-.MenuList {
-  height: 70vh;
-  background-color: rgb(255, 255, 255);
-  margin-top: 200px;
-  padding: 40px;
-  padding-top: 40px;
-}
-.DecorativeList {
-  background-color: rgb(216, 216, 216);
-  opacity: 0.6;   
-  max-width: 100%;
-  max-height: 85%;
-  overflow-y: scroll;
-  padding: 40px;
-}
-
-.MenuList nav {
-  margin-left: 20%;
-  margin-right: 20%;
+a:hover {
+  color: #999;
+  text-decoration: none;
 }
 
 
-@media (max-width: 768px) { 
-  .Basket {
-    margin: 0px;
+/*MAIN NAV*/
+
+.main-nav {
+  font-family: 'Rajdhani', sans-serif;
+  position: fixed;
+  z-index: 20;
+  width: 100%;
+  background-color: #f7f7f7;
+  border-top: 10px solid #00653e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .12);
+  height: 100px;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 1.799px;
+  letter-spacing: .18rem;
+}
+
+.link-anchor {
+  width: 30px;
+  height: 100px;
+  padding: 5px;
+}
+
+.nav-li {
+  margin-left: 20px
+}
+
+.navbar-nav{
+  width:100%
+}
+
+@media(max-width: 992px) {
+  .navbar, .navbar-expand-lg, .navbar-light, .bg-light, .main-nav {
+    padding: 0px;
+    position: relative;
+    z-index: 10;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, .12);
   }
+  #navbarSupportedContent {
+    background-color: #f7f7f7;
+    width: 100%;
+    position: relative;
+    z-index: 10;
+    margin-left: 0px
+  }
+  .nav-li {
+    margin: 5px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-bottom: 0.5px solid #000;
+  }
+  .navbar-toggler {
+    margin-right: 30px
+  }
+  .navbar-light .navbar-toggler {
+    border: none;
+  }
+  .navbar-toggler-icon {
+    color: #00653e;
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    padding: 12px;
+  }
+}
+
+
+/*MAIN CONTENT CONTAINER*/
+
+.main-container {
+  padding: 0px;
+  height: 100vh;
+  width: 100vw
+}
+
+.row-no-padding-margin {
+  padding: 0px;
+  margin: 0px
+}
+
+
+/*MENU NAV LEFT SIDE*/
+
+.left-side-menu-location {
+  width: 100%;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  height: 100vh;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24), 0 4px 4px 0 rgba(0, 0, 0, .12);
+}
+
+.menu-indication-header {
+  font-size: 2.6rem;
+  line-height: 1.385;
+  font-weight: 700;
+}
+
+@media(max-width:768px) {
+  .left-side-menu-location {
+    margin-top: 0px;
+  }
+}
+
+@media(max-width: 768px) {
+  .left-side-menu-location {
+    height: 70px;
+    margin-top: 100px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .24), 0 4px 4px 0 rgba(0, 0, 0, .12);
+    justify-content: flex-start;
+  }
+  .menu-indication-header {
+    margin-left: 20px;
+    margin-bottom: 0px;
+    font-size: 1.8rem
+  }
+  .left-side-menu-location {
+    margin-top: 0px;
+  }
+}
+
+/*MENU NAV RIGHT SIDE */
+.right-side-menu-items {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100vh;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, .24), 0 4px 4px 0 rgba(0, 0, 0, .12);
+  background-color: #f7f7f7;
+  padding-left: 0px;
+  padding-right: 0px
+}
+
+.flex-footer-child-container {
+  height: 100vh;
+  width: 100%;
+  background-color: #2d2926!important;
+  margin: 0px;
+  padding: 0px
+}
+
+.product-div{
+  display:inline-block;
+}
+
+.item-description{
+  display: inline;
+  font-size: 1.3rem;
+  line-height: 1.263;
+  font-weight: 100;
+  font-family: 'Arimo', sans-serif;
+  color:rgba(0,0,0,.87);
+  margin-left:16px;
+}
+
+.product-div {
+  margin:0 auto;
+  width: 50%;
+  display: inline-block;
+  padding-bottom:40px
+}
+
+.product-img {
+  max-width:140px;
+  border-radius:50%;
+}
+
+.menu-items {
+  justify-content:space-between;
+  align-items:flex-start;
+  overflow-y: scroll;
+  height:100%;
+  padding-top: 10rem;
+  padding-left:30px;
+  padding-right:30px;
+  padding-bottom: 4.8rem!important;
+}
+
+.flex-items-footer {
+  background-color:#2d2926!important;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.items-footer-text {
+  color: hsla(0,0%,100%,.7)!important;
+  margin: 30px;
+}
+
+/*MENU*/
+.drinks-header {
+  font-size:14px;
+  color:rgba(0,0,0,.87);
+  margin-bottom:32px;
+  text-transform: uppercase!important;
+  letter-spacing: .1em!important;
+}
+
+@media(max-width: 992px) {
+  .menu-items {
+    margin-top:32px;
+    padding-top:0px;
+  }
+}
+
+@media(max-width: 965px) {
+  .product-div {
+    display: block;
+    width: 100%;
+    margin: 40px 0px
+  }
+}
+
+@media(max-width: 830px) {
+  .product-div {
+    display: block;
+    width: 100%;
+    margin: 40px 0px
+  }
+}
+
+/*MENU HOT DRINKS */
+.inner-product-img {
+  max-width: 100px;
+  margin: 0 auto;
+  display: inline-block;
+  border-radius:50%;
+  margin-top:25px;
+}
+
+.product-div-inner-section {
+  height:200px;
+  display: inline-block;
+  width: 50%
+}
+
+.inner-item-description {
+  text-align: center;
+  font-weight: 400;
+  font-size: 13px;
+  font-size: 1.3rem;
+  line-height: 1.5;
+  letter-spacing: 0.2em;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline;
+  margin-left: 15px;
+}
+
+.left-side-back-menu {
+  font-size:1rem;
+  margin-right:20px;
+}
+
+.menu-items-inner {
+  height:100% !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow-y: scroll;
+  padding-bottom: 5.5rem!important;
+  padding-bottom: 5.5rem!important;
+}
+
+.flex-container-child{
+  width: 100%;
+  padding: 30px;
+  margin-top:50px
+}
+
+@media(max-width: 445px) {
+  .product-div-inner-section {
+    display: block;
+    width: 100%;
+  }
+  .flex-container-child {
+    margin-top:250px
+  }
+  .inner-product-img {
+    text-align: left
+  }
+  .inner-item-description {
+    text-align:left
+  }
+}
+
+.Page404 {
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100vw;
+height: 100vh;
+background-image: url(http://i.huffpost.com/gen/2649786/images/o-SPILLED-COFFEE-facebook.jpg)
+}
+
+.text404 {
+position: absolute;
+bottom: 0;
+left: 0;
+margin-left: 80px;
+margin-bottom: 50px;
+font-family: 'Rajdhani', sans-serif;
+font-size: 5rem;
 }
