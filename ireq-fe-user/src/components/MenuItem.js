@@ -16,23 +16,16 @@ class MenuItem extends Component {
           <div className="product-title-div">
             <li className='product-title'>{itemName}</li>
           </div>
-    
 
           <div className='price-addbtn'>
             <li className="product-price">{itemPrice}</li>
-      <AddButton
-          itemName={this.props.itemName}
-          itemPrice={this.props.itemPrice}
-          itemAller={this.props.itemAller}
-          handleAddClick={this.props.handleAddClick}
-          extras={this.props.extras}
-          inStock={this.props.inStock}
-          type={this.props.type}
-          temperature={this.props.temperature}
-        />
-                     </div>
-        </div>
 
+            <AddButton itemName={this.props.itemName}
+             itemPrice={this.props.itemPrice}
+             itemAller={this.props.itemAller} 
+             handleAddClick={this.props.handleAddClick}/>
+          </div>
+        </div>
 
       </div>
     );
