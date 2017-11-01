@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import Checkout from './Checkout'
+import StripeCheckout from 'react-stripe-checkout';
 
 const customStyles = {
   content : {
@@ -27,33 +28,39 @@ class TestModal extends React.Component {
     this.closeModal = this.closeModal.bind(this);
   }
 
-  openModal() {
+
+  openModal(e) {
+    e.preventDefault()
     this.setState({modalIsOpen: true});
   }
 
-  afterOpenModal() {
+  afterOpenModal(e) {
+    e.preventDefault()
     // references are now sync'd and can be accessed.
     this.subtitle.style.color = '#000';
   }
 
-  closeModal() {
+
+
+  closeModal(e) {
+    e.preventDefault()
     this.setState({modalIsOpen: false});
   }
 
   render() {
+    console.log()
     return (
       <div>
-        <button onClick={this.openModal}>Open Modal</button>
+        <button onClick={this.openModal}>Open Modal</button>   
         <Modal
           isOpen={this.state.modalIsOpen}
-          onAfterOpen={this.afterOpenModal}
           onRequestClose={this.closeModal}
           style={customStyles}
           contentLabel="Example Modal"
         >
 
           <h3 ref={subtitle => this.subtitle = subtitle}>Checkout - step 1</h3>
-          <form>
+          <form onSubmit ={(e) => e.preventDefault()}>
           <div className="modal-dialog" role="document">
           <div className="modal-content">
               <div className="modal-body">
@@ -61,31 +68,31 @@ class TestModal extends React.Component {
                   <div className="row">
                       <div className="col-6">
 
-                          <input type="text" className="form-control" id="custName" aria-describedby="custName" placeholder="Name" onChange={this.handleCustName} />
+                          <input type="text" className="form-control" id="custName" aria-describedby="custName" placeholder="Name" onChange={this.props.GenhandleChange('user_name')} />
                       </div>
 
                       <div className="col-6">
 
-                          <input type="email" className="form-control" id="custEmail" aria-describedby="custEmail" placeholder="Email address" onChange={this.handleCustName} />
+                          <input type="email" className="form-control" id="custEmail" aria-describedby="custEmail" placeholder="Email address" onChange={this.props.GenhandleChange('email')} />
                       </div>
 </div>
 <div>&nbsp;</div>
 <div className="row">
                       <div className="col-4">
 
-                          <input type="telephone" className="form-control" id="custMobile" aria-describedby="custMobile" placeholder="Mobile no." onChange={this.handleCustMobile} />
+                          <input type="telephone" className="form-control" id="custMobile" aria-describedby="custMobile" placeholder="Mobile no." onChange={this.props.GenhandleChange('phone_num')} />
                       </div>
 
 
 
                       <div className="col-4">
 
-                          <input type="text" className="form-control" id="companyName" aria-describedby="companyName" placeholder="Company" onChange={this.handleCustCompany} />
+                          <input type="text" className="form-control" id="companyName" aria-describedby="companyName" placeholder="Company" onChange={this.props.GenhandleChange('user_company')} />
                       </div>
 
                       <div className="col-4">
 
-                          <select className="form-control" id="productType" onChange={this.handleFloor}>
+                          <select className="form-control" id="productType" onChange={this.props.GenhandleChange('user_floor')}>
                               <option className="card-text" value={null}>Please select...</option>
                               <option className="card-text" value="B">B</option>
                               <option className="card-text" value="LG">LG</option>
@@ -104,7 +111,7 @@ class TestModal extends React.Component {
                       <div className="row">
                       <div className="form-group col-12">
 
-                          <textarea className="form-control" id="custAdditionalInfo" rows="1" placeholder="Additional information" ></textarea>
+                          <textarea className="form-control" onChange = {this.props.handleMessage}id="custAdditionalInfo" rows="1" placeholder="Additional information" ></textarea>
                       </div>
 
                   </div>
@@ -112,13 +119,13 @@ class TestModal extends React.Component {
                   <div className="row">
                       <div className="form-group col-12">
 
-                          <textarea className="form-control" id="custAdditionalInfo" rows="5" placeholder="{order_contents}">order_contents</textarea>
+                          <textarea className="form-control" id="custAdditionalInfo" rows="5" >{Object.keys(this.props.basket).toString()}</textarea>
                           </div>
                           </div>
 
                   <div className="modal-footer">
                       <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.closeModal}>Close</button>
-                      <Checkout className='level-item level-end'
+                      <Checkout 
             name={this.props.name}
             description={this.props.description}
             amount={this.props.amount}

@@ -34,9 +34,9 @@ axios.post(PAYMENT_SERVER_URL,
   .then(sendTicket)
   .catch(errorPayment);
 
-const Checkout = ({name, description, amount, sendTicket }) =>
-<div>
-<StripeCheckout
+const Checkout = ({name, description, amount, sendTicket }) =>{
+console.log(name, description, amount, sendTicket )
+return <StripeCheckout
   name={name}
   description={description}
   amount={fromPoundToPens(amount)}
@@ -44,8 +44,7 @@ const Checkout = ({name, description, amount, sendTicket }) =>
   currency={CURRENCY}
   stripeKey={STRIPE_PUBLISHABLE}
 />
-</div>
-
+}
 
 
 

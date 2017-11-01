@@ -10,12 +10,23 @@ class Menu extends Component {
     this.state = {
       items: [],
       basquet: {},
-      currentChoice: 'hot drink'
+      currentChoice: 'hot drink',
+      userDetails: {
+        id: 'NaN',
+        user_name: "",
+        email: "",
+        phone_num: "",
+        user_company: "",
+        user_floor: 0
+      },
+      message:''
     }
     this.handleAddClick = this.handleAddClick.bind(this);
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
     this.handleSubtractButton = this.handleSubtractButton.bind(this);
     this.handleDrinkChange = this.handleDrinkChange.bind(this);
+    this.GenhandleChange = this.GenhandleChange.bind(this)
+    this.handleMessage = this.handleMessage.bind(this)
   }
 
   componentDidMount() {
@@ -31,6 +42,8 @@ class Menu extends Component {
               basquet={this.state.basquet}
               handleSubmitButton={this.handleSubmitButton}
               handleSubtractButton={this.handleSubtractButton}
+              GenhandleChange={this.GenhandleChange}
+              handleMessage ={this.handleMessage}
             />
           </div>
 
@@ -51,6 +64,25 @@ class Menu extends Component {
         </div>
       </div>
     );
+  }
+
+
+  GenhandleChange(key) {
+    return (e) =>{
+    var newUser = Object.assign({}, this.state.userDetails, { [key]: e.target.value })
+
+    this.setState({
+      userDetails: newUser
+    })
+  }
+
+  }
+
+  handleMessage(e){
+    this.setState({
+      message:e.target.value
+    })
+
   }
 
   handleDrinkChange(event) {
@@ -112,7 +144,7 @@ class Menu extends Component {
   }
 
   fetchProducts() {
-   return axios.get('http://localhost:9007/products')
+    return axios.get('http://localhost:9007/products')
       .then((response) => {
         console.log(response.data);
         this.setState({
@@ -124,8 +156,11 @@ class Menu extends Component {
       });
   }
 
-  handleSubmitButton(event) {
+  handleSubmitButton() {
+
     let newOrder = Object.values(this.state.basquet)
+    let user = this.state.userDetails
+    let message = this.state.message
     console.log(newOrder)//Tracking changes/
 
     if (Object.keys(this.state.basquet).length > 0) {
@@ -138,12 +173,13 @@ class Menu extends Component {
     console.log('There is nothing in the basquet!')
   }
 
-  submitTicket(newOrder) {
+  submitTicket(newOrder, deets, message) {
     axios.post('http://localhost:9007/tickets',
       {
         delivery: true,
         order_content: newOrder,
-        message: 'this is the ticket',
+        message: message,
+        user_details: deets
       })
       .then((response) => {
         console.log(response);
