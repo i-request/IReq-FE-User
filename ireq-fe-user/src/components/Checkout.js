@@ -6,6 +6,9 @@ import { Redirect } from 'react-router-dom';
 import STRIPE_PUBLISHABLE from '../constants/stripe';
 import PAYMENT_SERVER_URL from '../constants/server';
 
+
+
+
 const CURRENCY = 'GBP';
 
 const fromPoundToPens = amount => amount;
@@ -32,8 +35,8 @@ axios.post(PAYMENT_SERVER_URL,
   .then(sendTicket)
   .catch(errorPayment);
 
-const Checkout = ({name, description, amount, sendTicket }) =>
-<StripeCheckout
+const Checkout = ({name, description, amount, sendTicket }) =>{
+return <StripeCheckout
   name={name}
   description={description}
   amount={fromPoundToPens(amount)}
@@ -41,7 +44,7 @@ const Checkout = ({name, description, amount, sendTicket }) =>
   currency={CURRENCY}
   stripeKey={STRIPE_PUBLISHABLE}
 />
-
+}
 
 
 

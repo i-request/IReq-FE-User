@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-
 import SubtractButton from './SubtractButton'
 import Checkout from './Checkout';
+import CheckoutModal from './CheckoutModal'
+
 
 class Basket extends Component {
   constructor(props) {
@@ -36,18 +37,25 @@ class Basket extends Component {
           })}
           <div className='total level'>
             <li className='level-item'>Total: {'£' + (total / 100).toFixed(2)}</li>
-            <Checkout className='level-item level-end'
+            <CheckoutModal
             name={'iRequest'}
             description={'Enjoy your food!'}
             amount={total}
-            sendTicket={this.handleClick} />
+            sendTicket={this.handleClick}
+            GenhandleChange = {this.props.GenhandleChange}
+            basket = {this.props.basquet}
+            handleMessage ={this.props.handleMessage}
+            />
           </div>
+         
+
         </ul>
       </div>
     );
   }
 
   handleClick() {
+
     this.props.handleSubmitButton()
   }
 

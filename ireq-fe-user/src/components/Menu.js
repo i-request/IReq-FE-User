@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MenuList from './MenuList';
 import Basket from './Basket'
+import CheckoutModal from './CheckoutModal'
 
 class Menu extends Component {
   constructor(props) {
@@ -9,12 +10,23 @@ class Menu extends Component {
     this.state = {
       items: [],
       basquet: {},
-      currentChoice: 'hot drink'
+      currentChoice: 'hot drink',
+      userDetails: {
+        id: 'NaN',
+        user_name: "",
+        email: "",
+        phone_num: "",
+        user_company: "",
+        user_floor: 0
+      },
+      message:''
     }
     this.handleAddClick = this.handleAddClick.bind(this);
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
     this.handleSubtractButton = this.handleSubtractButton.bind(this);
     this.handleDrinkChange = this.handleDrinkChange.bind(this);
+    this.GenhandleChange = this.GenhandleChange.bind(this)
+    this.handleMessage = this.handleMessage.bind(this)
   }
 
   componentDidMount() {
@@ -30,6 +42,8 @@ class Menu extends Component {
               basquet={this.state.basquet}
               handleSubmitButton={this.handleSubmitButton}
               handleSubtractButton={this.handleSubtractButton}
+              GenhandleChange={this.GenhandleChange}
+              handleMessage ={this.handleMessage}
             />
           </div>
 
@@ -52,6 +66,25 @@ class Menu extends Component {
     );
   }
 
+
+  GenhandleChange(key) {
+    return (e) =>{
+    var newUser = Object.assign({}, this.state.userDetails, { [key]: e.target.value })
+
+    this.setState({
+      userDetails: newUser
+    })
+  }
+
+  }
+
+  handleMessage(e){
+    this.setState({
+      message:e.target.value
+    })
+
+  }
+
   handleDrinkChange(event) {
     console.log(event.target.value)
     this.setState({
@@ -65,12 +98,14 @@ class Menu extends Component {
     });
   }
 
-  handleAddClick(itemName, itemPrice) {
+  handleAddClick(itemName, itemPrice, allergens) {
     let basquet = this.state.basquet
     let order = {
       name: itemName,
       price: itemPrice,
-      quantity: basquet[itemName] ? basquet[itemName].quantity + 1 : 1
+      quantity: basquet[itemName] ? basquet[itemName].quantity + 1 : 1,
+      allergens:allergens
+
     }
     this.setState({
       basquet: Object.assign({}, basquet, {
@@ -111,7 +146,7 @@ class Menu extends Component {
   }
 
   fetchProducts() {
-    axios.get('http://localhost:9007/products')
+    return axios.get('http://localhost:9007/products')
       .then((response) => {
         console.log(response.data);
         this.setState({
@@ -123,12 +158,28 @@ class Menu extends Component {
       });
   }
 
-  handleSubmitButton(event) {
-    let newOrder = Object.values(this.state.basquet)
-    console.log(newOrder)//Tracking changes/
+  handleSubmitButton() {
+
+    //name,price,quantity:1
+    let newOrder = Object.values(this.state.basquet).map((item)=>{
+      return{
+        type: "food",
+        name: item.name,
+        extras: [],
+        price: item.price,
+        quantity:item.quantity,
+        inStock: true,
+        allergens: item.allergens
+      }
+
+    })
+
+    let user = this.state.userDetails
+    let message = this.state.message
+    
 
     if (Object.keys(this.state.basquet).length > 0) {
-      this.submitTicket(newOrder)
+      this.submitTicket(newOrder,user,message)
       this.setState({
         basquet: {}
       })
@@ -137,12 +188,14 @@ class Menu extends Component {
     console.log('There is nothing in the basquet!')
   }
 
-  submitTicket(newOrder) {
+  submitTicket(newOrder, deets, message) {
+
     axios.post('http://localhost:9007/tickets',
       {
         delivery: true,
         order_content: newOrder,
-        message: 'this is the ticket',
+        message: message,
+        user_details: deets
       })
       .then((response) => {
         console.log(response);
