@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import AddButton from './AddButton';
 
 class MenuItem extends Component {
@@ -9,13 +9,18 @@ class MenuItem extends Component {
     const imgUrl = this.props.imgUrl;
     return (
       <div className='product-div-inner-section'>
-        <img src={imgUrl} className="inner-product-img" alt="" />
+        <div className='product-img-div'>
+          <img src={imgUrl} className="inner-product-img" alt=""/>
+        </div>
+        <div className='product-details-div'>
+          <div className="product-title-div">
+            <li className='product-title'>{itemName}</li>
+          </div>
+    
 
-        <li className=''>{itemName}</li>
-        <li className=''>{itemDescription}</li>
-        <li className=''>{itemPrice}</li>
-
-        <AddButton
+          <div className='price-addbtn'>
+            <li className="product-price">{itemPrice}</li>
+      <AddButton
           itemName={this.props.itemName}
           itemPrice={this.props.itemPrice}
           itemAller={this.props.itemAller}
@@ -25,6 +30,9 @@ class MenuItem extends Component {
           type={this.props.type}
           temperature={this.props.temperature}
         />
+                     </div>
+        </div>
+
 
       </div>
     );

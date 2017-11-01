@@ -165,13 +165,9 @@ li {
   padding: 0px
 }
 
-.product-div{
-  display:inline-block;
-}
-
 .item-description{
   display: inline;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 1.263;
   font-weight: 100;
   font-family: 'Arimo', sans-serif;
@@ -183,7 +179,7 @@ li {
   margin:0 auto;
   width: 50%;
   display: inline-block;
-  padding-bottom:40px
+  padding:10px;
 }
 
 .product-img {
@@ -196,9 +192,7 @@ li {
   align-items:flex-start;
   overflow-y: scroll;
   height:100%;
-  padding-top: 10rem;
-  padding-left:30px;
-  padding-right:30px;
+  padding-top: 6.2rem;
   padding-bottom: 4.8rem!important;
 }
 
@@ -228,78 +222,108 @@ li {
 @media(max-width: 992px) {
   .menu-items {
     padding-top:0px;
-    padding-bottom:0px !important
+    padding-bottom:80px !important
   }
 }
 
 @media(max-width: 965px) {
   .product-div {
-    display: block;
-    width: 100%;
-    margin: 40px 0px
+    display: inline;
+    width: 50%;
+    margin: 0px 0px
   }
-}
-
-@media(max-width: 830px) {
-  .product-div {
-    display: block;
-    width: 100%;
-    margin: 40px 0px
+  .product-img {
+    max-width: 50px
   }
 }
 
 /*MENU HOT DRINKS */
+
+.product-img-div {
+  width:40%;
+  display:flex;
+  align-items: center;
+  height: inherit;
+}
+
 .inner-product-img {
-  max-width: 150px;
+  max-width: 5rem;
   margin: 0 auto;
   display:block;
   border-radius:50%;
-  margin-top:25px;
+  margin:0 auto;
+}
+
+.product-details-div {
+  display: grid;
+  align-items: center;
+  width:60%;
+  height:inherit;
+}
+
+.product-details {
+  display: inline-block;
 }
 
 .product-div-inner-section {
-  height:200px;
-  display: inline-block;
+  height:100px;
+  align-items: center;
+  display: inline-flex;
+  align-items: center;
   width: 50%
 }
 
 .inner-item-description {
-  text-align: center;
-  font-weight: 400;
-  font-size: 13px;
+  display: block;
+  width: 100%
+}
+
+.product-title {
+  font-family: 'Rajdhani', sans-serif;
+  display: block;
+  width: inherit;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.799px;
+
+}
+
+.product-price {
+  display:inline-block;
+  font-family: 'Arimo', sans-serif;
+  width: inherit;
   font-size: 1.3rem;
-  line-height: 1.5;
-  letter-spacing: 0.2em;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  display: inline;
-  margin-left: 15px;
+  font-weight: 900;
+  line-height: 1;
+  padding-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.799px;
 }
 
-.left-side-back-menu {
-  font-size:1rem;
-  margin-right:20px;
+.add-product-to-basket-btn {
+  display: inline-block;
 }
 
-.menu-items-inner {
-  height:100% !important;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  overflow-y: scroll;
-  padding-bottom: 5.5rem!important;
-  padding-bottom: 5.5rem!important;
+.add-button {
+  border:none;
+  background:none;
+}
+.product-title-div {
+  margin-bottom: -40px;
 }
 
-.flex-container-child{
-  width: 100%;
-  padding: 30px;
-  margin-top:50px
+@media(max-width: 996px) {
+  .inner-product-img {
+    max-width: 5rem
+  }
 }
 
 @media(max-width: 445px) {
   .product-div-inner-section {
-    display: block;
+    display: inline-flex;
     width: 100%;
   }
   .flex-container-child {
@@ -312,9 +336,16 @@ li {
     text-align:left
   }
 }
+@media(max-width: 365px) {
+  .item-description {
+    font-size: 0.9rem
+  }
+}
+
 .fa-plus-circle,
 .fa-minus-circle {
-  color: #00653e
+  color: #00653e;
+  font-size: 1.2rem
 }
 
 .Page404 {
@@ -336,6 +367,7 @@ li {
   font-size: 5rem;
 }
 
-.active-background {
-  background-color:red!important
+.hot,
+.cold{
+  opacity: 0.4
 }
