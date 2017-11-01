@@ -35,7 +35,6 @@ axios.post(PAYMENT_SERVER_URL,
   .catch(errorPayment);
 
 const Checkout = ({name, description, amount, sendTicket }) =>{
-console.log(name, description, amount, sendTicket )
 return <StripeCheckout
   name={name}
   description={description}

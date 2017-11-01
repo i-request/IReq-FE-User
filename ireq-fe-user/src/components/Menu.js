@@ -98,12 +98,14 @@ class Menu extends Component {
     });
   }
 
-  handleAddClick(itemName, itemPrice) {
+  handleAddClick(itemName, itemPrice, allergens) {
     let basquet = this.state.basquet
     let order = {
       name: itemName,
       price: itemPrice,
-      quantity: basquet[itemName] ? basquet[itemName].quantity + 1 : 1
+      quantity: basquet[itemName] ? basquet[itemName].quantity + 1 : 1,
+      allergens:allergens
+
     }
     this.setState({
       basquet: Object.assign({}, basquet, {
@@ -158,13 +160,26 @@ class Menu extends Component {
 
   handleSubmitButton() {
 
-    let newOrder = Object.values(this.state.basquet)
+    //name,price,quantity:1
+    let newOrder = Object.values(this.state.basquet).map((item)=>{
+      return{
+        type: "food",
+        name: item.name,
+        extras: [],
+        price: item.price,
+        quantity:item.quantity,
+        inStock: true,
+        allergens: item.allergens
+      }
+
+    })
+
     let user = this.state.userDetails
     let message = this.state.message
-    console.log(newOrder)//Tracking changes/
+    
 
     if (Object.keys(this.state.basquet).length > 0) {
-      this.submitTicket(newOrder)
+      this.submitTicket(newOrder,user,message)
       this.setState({
         basquet: {}
       })
@@ -174,6 +189,7 @@ class Menu extends Component {
   }
 
   submitTicket(newOrder, deets, message) {
+
     axios.post('http://localhost:9007/tickets',
       {
         delivery: true,
