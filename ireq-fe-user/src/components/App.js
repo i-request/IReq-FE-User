@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import Home from './Home'
-import Menu from './Menu'
+import About from './About';
+import Home from './Home';
+import Menu from './Menu';
 import NavBar from './NavBar';
-import Success from './Success'
+import Success from './Success';
 
 class App extends Component {
   render() {
@@ -33,7 +34,4 @@ const NoMatch = () => (
 )
 
 
-const About = (props) => (
-  <div>About</div>
-)
 export default App;
