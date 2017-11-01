@@ -1,47 +1,33 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
 
 import MenuItem from './MenuItem'
 
 class MenuList extends Component {
  constructor(props) {
    super(props)
-   this.toggleActiveBackground = this.toggleActiveBackground.bind(this);
-   this.renderCold = this.renderCold.bind(this)
    this.state = {
-     navBarColdDrinks: false,
-     navBarHotDrinks: false
+     active: ''
    }
  }
 
- toggleActiveBackground(event) {
-   console.log('event', event.currentTarget.firstChild.className);
-   this.setState({ navBarColdDrinks: !this.state.navBarColdDrinks, navBarHotDrinks:false})
- }
-
- renderCold(bool) {
-   const addActiveBackground = bool
-     ? 'active-background'
-     : '';
-   return (
-     <button id="hotDrinks" onClick={this.props.handleDrinkChange} className={`hot product-div btn btn-light ${addActiveBackground}`}>
-       <img src="../images/latte.jpg" className="product-img" alt="coffee" />
-       <h3 className="item-description">Hot Drinks</h3>
-     </button>
-   );
- }
-
   render() {
-    return (
-      <div>
-        <span id='viewBtn' onClick={this.toggleActiveBackground}>{this.renderCold(this.props.isViewed)}</span>
+    const activeStyle = { backgroundColor: '#00653e' };
+    const activeHeaderStyle = { color: '#f7f7f7' }
 
-        <button id="coldDrinks" className="product-div btn btn-light active-background" onClick={this.props.handleDrinkChange} value='drink'>
-          <img src="../images/example3.png" className="product-img" alt="" />
-          <h3 className="item-description">Cold Drinks</h3>
+    return (
+
+      <div>
+        <button className="cold product-div btn btn-light" onClick={this.props.handleDrinkChange} value='drink' style={this.props.active.includes('cold') ? activeStyle : {}}>
+          <div className="test">
+            <img src="../images/example3.png" className="product-img" alt="" />
+            <h3 className="item-description" style={this.props.active.includes('cold') ? activeHeaderStyle : {}}>Cold Drinks</h3>
+          </div>
         </button>
 
-        {/* <button onClick={this.props.handleDrinkChange} value='food' className='navbar-item level-item' >Frozen</button> */}
+        <button className="hot product-div btn btn-light" onClick={this.props.handleDrinkChange} value='hot drink' style={this.props.active.includes('hot') ? activeStyle : {}}>
+          <img src="../images/latte.jpg" className="product-img" alt="" />
+          <h3 className="item-description" style={this.props.active.includes('hot') ? activeHeaderStyle : {}}>Hot Drinks</h3>
+        </button>
 
         {this.props.items.map((item, i) => (
           <MenuItem

@@ -9,7 +9,8 @@ class Menu extends Component {
     this.state = {
       items: [],
       basquet: {},
-      currentChoice: 'hot drink'
+      currentChoice: 'hot drink',
+      active: ''
     }
     this.handleAddClick = this.handleAddClick.bind(this);
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
@@ -39,6 +40,7 @@ class Menu extends Component {
                 items={this.itemsFilter(this.state.items)}
                 handleAddClick={this.handleAddClick}
                 handleDrinkChange={this.handleDrinkChange}
+                active={this.state.active}
               />
             </div>
             <div className="flex-items-footer">
@@ -53,9 +55,9 @@ class Menu extends Component {
   }
 
   handleDrinkChange(event) {
-    console.log(event.target.value)
     this.setState({
-      currentChoice: event.target.value
+      currentChoice: event.target.value,
+      active: event.currentTarget.className
     });
   }
 
