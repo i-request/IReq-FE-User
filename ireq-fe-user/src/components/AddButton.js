@@ -10,8 +10,8 @@ class AddButton extends Component {
 
   render() {
     return (
-      <div className='inner-item-description'>
-        <button onClick={this.handleClick}>
+      <div className="add-product-to-basket-btn">
+        <button onClick={this.handleClick} className="add-button">
           <i className="fa fa-plus-circle" aria-hidden="true"></i>
         </button>
       </div>

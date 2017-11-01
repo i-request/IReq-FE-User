@@ -11,7 +11,7 @@ class Menu extends Component {
       items: [],
       basquet: {},
       currentChoice: 'hot drink',
-      active: ''
+      active: 'hot',
       userDetails: {
         id: 'NaN',
         user_name: "",
@@ -178,7 +178,7 @@ class Menu extends Component {
 
     let user = this.state.userDetails
     let message = this.state.message
-    
+
 
     if (Object.keys(this.state.basquet).length > 0) {
       this.submitTicket(newOrder,user,message)
