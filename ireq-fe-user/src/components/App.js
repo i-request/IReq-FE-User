@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+
 import Home from './Home'
 import Menu from './Menu'
 import NavBar from './NavBar';
-class App extends Component {
+import Success from './Success'
 
+class App extends Component {
   render() {
     return (
       <BrowserRouter>
@@ -29,11 +31,7 @@ const NoMatch = () => (
     <h1 className='text404'>Page not found - 404</h1>
   </div>
 )
-const Success = () => (
-  <div className='Success'>
-    <h1> Success! </h1>
-  </div>
-)
+
 
 const About = (props) => (
   <div>About</div>

@@ -3,12 +3,14 @@ import React, { Component } from 'react';
 import MenuItem from './MenuItem'
 
 class MenuList extends Component {
- constructor(props) {
-   super(props)
-   this.state = {
-     active: ''
-   }
- }
+  constructor(props) {
+    super(props)
+    this.state = {
+       active: ''
+    }
+  }
+
+
 
   render() {
     const activeStyle = { backgroundColor: '#00653e', opacity:'1' };
@@ -34,9 +36,14 @@ class MenuList extends Component {
             imgUrl={item.imgUrl}
             itemName={item.name}
             itemPrice={item.price}
-            itemAller ={item.allergens}
+            itemAller={item.allergens}
             itemDescription={item.description}
+            extras={item.extras}
+            inStock={item.inStock}
+            type={item.type}
+            temperature={item.temperature}
             handleAddClick={this.props.handleAddClick}
+
           />
         ))}
       </div>

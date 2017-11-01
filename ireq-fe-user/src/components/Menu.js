@@ -20,7 +20,7 @@ class Menu extends Component {
         user_company: "",
         user_floor: 0
       },
-      message:''
+      message: ''
     }
     this.handleAddClick = this.handleAddClick.bind(this);
     this.handleSubmitButton = this.handleSubmitButton.bind(this);
@@ -44,7 +44,7 @@ class Menu extends Component {
               handleSubmitButton={this.handleSubmitButton}
               handleSubtractButton={this.handleSubtractButton}
               GenhandleChange={this.GenhandleChange}
-              handleMessage ={this.handleMessage}
+              handleMessage={this.handleMessage}
             />
           </div>
 
@@ -70,21 +70,19 @@ class Menu extends Component {
 
 
   GenhandleChange(key) {
-    return (e) =>{
-    var newUser = Object.assign({}, this.state.userDetails, { [key]: e.target.value })
+    return (e) => {
+      var newUser = Object.assign({}, this.state.userDetails, { [key]: e.target.value })
 
-    this.setState({
-      userDetails: newUser
-    })
+      this.setState({
+        userDetails: newUser
+      })
+    }
   }
 
-  }
-
-  handleMessage(e){
+  handleMessage(e) {
     this.setState({
-      message:e.target.value
+      message: e.target.value
     })
-
   }
 
   handleDrinkChange(event) {
@@ -100,15 +98,19 @@ class Menu extends Component {
     });
   }
 
-  handleAddClick(itemName, itemPrice, allergens) {
+  handleAddClick(itemName, itemPrice, allergens, extras, inStock, type, temperature) {
     let basquet = this.state.basquet
     let order = {
       name: itemName,
       price: itemPrice,
       quantity: basquet[itemName] ? basquet[itemName].quantity + 1 : 1,
-      allergens:allergens
-
+      allergens,
+      extras,
+      inStock,
+      temperature,
+      type
     }
+    console.log(order)
     this.setState({
       basquet: Object.assign({}, basquet, {
         [itemName]: order
@@ -117,15 +119,26 @@ class Menu extends Component {
   }
 
   handleSubtractButton(itemName) {
-    let basquet = this.state.basquet
-    let quantity = this.state.basquet[itemName].quantity
-    let price = this.state.basquet[itemName].price
+    let basquet = this.state.basquet;
+    let quantity = this.state.basquet[itemName].quantity;
+    let price = this.state.basquet[itemName].price;
+    let allergens = this.state.basquet[itemName].allergens;
+    let extras = this.state.basquet[itemName].extras;
+    let inStock = this.state.basquet[itemName].inStock;
+    let type = this.state.basquet[itemName].type;
+    let temperature = this.state.basquet[itemName].temperature;
+
     let order = {
       name: itemName,
       price: price,
-      quantity: quantity - 1
+      quantity: quantity - 1,
+      allergens,
+      extras,
+      inStock,
+      type,
+      temperature
     }
-
+    console.log(order)
     var newState = {}
     if (order.quantity < 0) {
       for (let key in basquet) {
@@ -161,27 +174,27 @@ class Menu extends Component {
   }
 
   handleSubmitButton() {
-
     //name,price,quantity:1
-    let newOrder = Object.values(this.state.basquet).map((item)=>{
-      return{
-        type: "food",
-        name: item.name,
-        extras: [],
-        price: item.price,
-        quantity:item.quantity,
-        inStock: true,
-        allergens: item.allergens
-      }
-
-    })
+    let newOrder = Object.values(this.state.basquet)
+    
+    // .map((item) => {
+    //   return {
+    //     type: "food",
+    //     name: item.name,
+    //     extras: [],
+    //     price: item.price,
+    //     quantity: item.quantity,
+    //     inStock: true,
+    //     allergens: item.allergens
+    //   }
+    // })
 
     let user = this.state.userDetails
     let message = this.state.message
 
 
     if (Object.keys(this.state.basquet).length > 0) {
-      this.submitTicket(newOrder,user,message)
+      this.submitTicket(newOrder, user, message)
       this.setState({
         basquet: {}
       })
@@ -191,7 +204,6 @@ class Menu extends Component {
   }
 
   submitTicket(newOrder, deets, message) {
-
     axios.post('http://localhost:9007/tickets',
       {
         delivery: true,
