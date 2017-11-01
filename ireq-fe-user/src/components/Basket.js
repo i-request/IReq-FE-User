@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import SubtractButton from './SubtractButton'
-import Checkout from './Checkout';
 import CheckoutModal from './CheckoutModal'
 
 
@@ -31,7 +30,6 @@ class Basket extends Component {
                   itemName={product.name}
                   handleSubtractButton={this.props.handleSubtractButton}
                 />
-
               </div>
             )}
           })}

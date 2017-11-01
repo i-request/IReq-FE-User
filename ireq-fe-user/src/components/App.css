@@ -371,3 +371,26 @@ li {
 .cold{
   opacity: 0.4
 }
+
+.Success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(http://blog.cardsdirect.com/wp-content/uploads/2017/04/Thank-You.jpg);
+  background-size: cover; 
+}
+
+.Home {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.About {
+  position: absolute;
+  top: 20%;
+}
