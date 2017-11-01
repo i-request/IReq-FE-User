@@ -35,6 +35,7 @@ class MenuList extends Component {
             imgUrl={item.imgUrl}
             itemName={item.name}
             itemPrice={item.price}
+            itemAller ={item.allergens}
             itemDescription={item.description}
             handleAddClick={this.props.handleAddClick}
           />

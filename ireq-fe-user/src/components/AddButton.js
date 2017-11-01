@@ -19,7 +19,7 @@ class AddButton extends Component {
   }
 
   handleClick(){
-    this.props.handleAddClick(this.props.itemName, this.props.itemPrice);
+    this.props.handleAddClick(this.props.itemName, this.props.itemPrice, this.props.itemAller);
   }
 }
 

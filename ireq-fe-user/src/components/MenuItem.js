@@ -18,6 +18,7 @@ class MenuItem extends Component {
         <AddButton
           itemName={this.props.itemName}
           itemPrice={this.props.itemPrice}
+          itemAller = {this.props.itemAller}
           handleAddClick={this.props.handleAddClick}
         />
 
