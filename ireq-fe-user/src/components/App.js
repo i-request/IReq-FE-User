@@ -15,10 +15,10 @@ class App extends Component {
           <NavBar />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/about' component={About} />
-            <Route path='/menu' component={Menu} />
-            <Route path='/success' component={Success} />
-            <Route component={NoMatch} />
+            <Route exact path='/about' component={About} />
+            <Route exact path='/menu' component={Menu} />
+            <Route exact path='/success' component={Success} />
+            <Route path='*' component={NoMatch} />
           </Switch>
         </div>
       </BrowserRouter>

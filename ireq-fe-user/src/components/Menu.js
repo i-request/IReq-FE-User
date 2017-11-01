@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MenuList from './MenuList';
 import Basket from './Basket'
-import CheckoutModal from './CheckoutModal'
+
 
 class Menu extends Component {
   constructor(props) {
