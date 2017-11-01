@@ -20,14 +20,21 @@ class TestModal extends React.Component {
     super();
 
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: false,
+      flag: false
     };
 
     this.openModal = this.openModal.bind(this);
     this.afterOpenModal = this.afterOpenModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.successPayment = this.successPayment.bind(this);
   }
 
+  successPayment() {
+     this.setState({
+      flag: true
+     })
+  }
 
   openModal(e) {
     e.preventDefault()
@@ -39,8 +46,6 @@ class TestModal extends React.Component {
     // references are now sync'd and can be accessed.
     this.subtitle.style.color = '#000';
   }
-
-
 
   closeModal(e) {
     e.preventDefault()
@@ -126,6 +131,8 @@ class TestModal extends React.Component {
                   <div className="modal-footer">
                       <button type="button" className="btn btn-secondary" data-dismiss="modal" onClick={this.closeModal}>Close</button>
                       <Checkout 
+                      flag={this.state.flag}
+                      successPayment={this.successPayment}
             name={this.props.name}
             description={this.props.description}
             amount={this.props.amount}
