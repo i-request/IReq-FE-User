@@ -11,11 +11,13 @@ class AddButton extends Component {
   render() {
     return (
       <div className='inner-item-description'>
-        <button onClick={this.handleClick}>+</button>
+        <button onClick={this.handleClick}>
+          <i className="fa fa-plus-circle" aria-hidden="true"></i>
+        </button>
       </div>
     );
   }
-  
+
   handleClick(){
     this.props.handleAddClick(this.props.itemName, this.props.itemPrice);
   }

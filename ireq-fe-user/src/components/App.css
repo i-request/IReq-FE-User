@@ -16,6 +16,9 @@ a:hover {
   text-decoration: none;
 }
 
+li {
+  list-style: none;
+}
 
 /*MAIN NAV*/
 
@@ -224,8 +227,8 @@ a:hover {
 
 @media(max-width: 992px) {
   .menu-items {
-    margin-top:32px;
     padding-top:0px;
+    padding-bottom:0px !important
   }
 }
 
@@ -247,9 +250,9 @@ a:hover {
 
 /*MENU HOT DRINKS */
 .inner-product-img {
-  max-width: 100px;
+  max-width: 150px;
   margin: 0 auto;
-  display: inline-block;
+  display:block;
   border-radius:50%;
   margin-top:25px;
 }
@@ -309,22 +312,30 @@ a:hover {
     text-align:left
   }
 }
+.fa-plus-circle,
+.fa-minus-circle {
+  color: #00653e
+}
 
 .Page404 {
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100vw;
-height: 100vh;
-background-image: url(http://i.huffpost.com/gen/2649786/images/o-SPILLED-COFFEE-facebook.jpg)
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(http://i.huffpost.com/gen/2649786/images/o-SPILLED-COFFEE-facebook.jpg)
 }
 
 .text404 {
-position: absolute;
-bottom: 0;
-left: 0;
-margin-left: 80px;
-margin-bottom: 50px;
-font-family: 'Rajdhani', sans-serif;
-font-size: 5rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 80px;
+  margin-bottom: 50px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 5rem;
+}
+
+.active-background {
+  background-color:red!important
 }

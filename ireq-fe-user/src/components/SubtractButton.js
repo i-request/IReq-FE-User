@@ -11,7 +11,9 @@ class SubtractButton extends Component {
   render() {
     return (
       <div className='column level-item'>
-        <button onClick={this.handleClick}>-</button>
+        <button onClick={this.handleClick}>
+          <i className="fa fa-minus-circle" aria-hidden="true"></i>
+        </button>
       </div>
     );
   }
