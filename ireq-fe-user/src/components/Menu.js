@@ -159,7 +159,7 @@ class Menu extends Component {
   }
 
   fetchProducts() {
-    return axios.get('http://localhost:9007/products')
+    return axios.get('https://irequest-be.herokuapp.com/products')
       .then((response) => {
       
         this.setState({
@@ -201,7 +201,7 @@ class Menu extends Component {
   }
 
   submitTicket(newOrder, deets, message) {
-    axios.post('http://localhost:9007/tickets',
+    axios.post('https://irequest-be.herokuapp.com/tickets',
       {
         delivery: true,
         order_content: newOrder,
