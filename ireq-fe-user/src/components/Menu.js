@@ -110,7 +110,7 @@ class Menu extends Component {
       temperature,
       type
     }
-    console.log(order)
+
     this.setState({
       basquet: Object.assign({}, basquet, {
         [itemName]: order
@@ -163,7 +163,7 @@ class Menu extends Component {
   fetchProducts() {
     return axios.get('http://localhost:9007/products')
       .then((response) => {
-        console.log(response.data);
+      
         this.setState({
           items: response.data
         })

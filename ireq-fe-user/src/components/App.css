@@ -569,7 +569,7 @@ textarea {
   line-height: 15px;
 }
 
-/* .Success {
+.Success {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -583,5 +583,5 @@ textarea {
 .About {
   position: absolute;
   top: 20%;
-} */
+}
 

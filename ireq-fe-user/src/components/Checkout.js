@@ -29,9 +29,10 @@ const onToken = (amount, description, sendTicket, successPayment) => token =>
     .catch(errorPayment);
 
 const Checkout = ({ name, description, amount, sendTicket, flag, successPayment}) => {
-  if(flag){
-    return <Redirect to='/success' />
-  }
+  // console.log(flag)
+  // if(flag){
+  //   return <Redirect to='/success' />
+  // }
   return <StripeCheckout
     name={name}
     description={description}

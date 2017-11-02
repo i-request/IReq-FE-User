@@ -30,6 +30,7 @@ class TestModal extends React.Component {
   }
 
   successPayment() {
+    console.log('called')
     this.setState({flag: true})
   }
 
@@ -120,7 +121,7 @@ class TestModal extends React.Component {
 
                   <div className="modal-footer">
                     <button type="button" className="btn btn-secondary model-close-btn" data-dismiss="modal" onClick={this.closeModal}>Close</button>
-                    <Checkout flag={this.state.flag} successPayment={this.successPayment} name={this.props.name} description={this.props.description} amount={this.props.amount} sendTicket={this.props.sendTicket}/>
+                    <Checkout flag={this.props.flag} successPayment={this.props.successPayment} name={this.props.name} description={this.props.description} amount={this.props.amount} sendTicket={this.props.sendTicket}/>
                   </div>
                 </div>
               </div>

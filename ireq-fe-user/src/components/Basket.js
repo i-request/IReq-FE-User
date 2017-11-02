@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
 import SubtractButton from './SubtractButton'
 import CheckoutModal from './CheckoutModal'
+import { Redirect } from 'react-router-dom';
 
 
 class Basket extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.state ={
+      flag:false
+    }
+    this.successPayment = this.successPayment.bind(this)
+  }
+
+  successPayment() {
+    console.log('called')
+    this.setState({flag: true})
   }
 
   render() {
     let total = 0;
-  if(Object.values(this.props.basquet).length>0)
+  if(this.state.flag){
+      return <Redirect to='/success' />
+  }
+  else if(Object.values(this.props.basquet).length>0)
       {return (
         <div className='basket'>
             <div className="basket-headers">
@@ -50,6 +63,8 @@ class Basket extends Component {
             GenhandleChange = {this.props.GenhandleChange}
             basket = {this.props.basquet}
             handleMessage ={this.props.handleMessage}
+            successPayment = {this.successPayment}
+            flag ={this.state.flag}
             />
           </div>
 
