@@ -19,9 +19,9 @@ class AddButton extends Component {
   }
 
   handleClick(){
-    let { itemName, itemPrice, itemAller, extras, inStock, type, temperature } = this.props
+    let { itemName, itemPrice, itemAller, itemExtra, itemStock } = this.props
 
-    this.props.handleAddClick(itemName, itemPrice, itemAller, extras, inStock, type, temperature);
+    this.props.handleAddClick(itemName, itemPrice, itemAller, itemExtra, itemStock,);
   }
 }
 

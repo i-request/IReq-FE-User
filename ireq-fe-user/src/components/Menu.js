@@ -98,7 +98,7 @@ class Menu extends Component {
     });
   }
 
-  handleAddClick(itemName, itemPrice, allergens, extras, inStock, type, temperature) {
+  handleAddClick(itemName, itemPrice, allergens, extras, inStock) {
     let basquet = this.state.basquet
     let order = {
       name: itemName,
@@ -106,9 +106,7 @@ class Menu extends Component {
       quantity: basquet[itemName] ? basquet[itemName].quantity + 1 : 1,
       allergens,
       extras,
-      inStock,
-      temperature,
-      type
+      inStock
     }
 
     this.setState({
@@ -175,17 +173,18 @@ class Menu extends Component {
 
   handleSubmitButton() {
     let newOrder = Object.values(this.state.basquet)
-    // .map((item) => {
-    //   return {
-    //     type: "drink",
-    //     name: item.name,
-    //     extras: [],
-    //     price: item.price,
-    //     quantity: item.quantity,
-    //     inStock: true,
-    //     allergens: item.allergens
-    //   }
-    // })
+    .map((item) => {
+      if(item.inStock === false){return}
+      if(item.quantity < 1){return}
+      return {
+        name: item.name,
+        extras: item.extras,
+        price: item.price,
+        quantity: item.quantity,
+        inStock: item.stock,
+        allergens: item.allergens
+      }
+    })
 
 
     let user = this.state.userDetails
