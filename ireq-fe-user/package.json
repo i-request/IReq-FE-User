@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.17.0",
+    "bulma": "^0.6.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-modal": "^3.1.0",
+    "react-motion": "^0.5.2",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.14",
+    "react-stripe-checkout": "^2.6.3",
+    "uikit": "^3.0.0-beta.31"
   },
   "scripts": {
     "start": "react-scripts start",
