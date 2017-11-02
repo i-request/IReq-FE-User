@@ -17,7 +17,12 @@ a:hover {
 }
 
 li {
+  display:inline-block;
   list-style: none;
+}
+
+textarea {
+    resize: none;
 }
 
 /*MAIN NAV*/
@@ -108,12 +113,13 @@ li {
 .left-side-menu-location {
   width: 100%;
   display: flex;
-  position: relative;
   justify-content: center;
   align-items: center;
+  position: relative;
   z-index: 0;
   height: 100vh;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .24), 0 4px 4px 0 rgba(0, 0, 0, .12);
+  overflow-y: scroll
 }
 
 .menu-indication-header {
@@ -173,6 +179,7 @@ li {
   font-family: 'Arimo', sans-serif;
   color:rgba(0,0,0,.87);
   margin-left:16px;
+  letter-spacing: 1px
 }
 
 .product-div {
@@ -192,8 +199,8 @@ li {
   align-items:flex-start;
   overflow-y: scroll;
   height:100%;
-  padding-top: 6.2rem;
-  padding-bottom: 4.8rem!important;
+  padding-top: 6.4rem;
+  padding-bottom: 5.5rem!important;
 }
 
 .flex-items-footer {
@@ -222,7 +229,7 @@ li {
 @media(max-width: 992px) {
   .menu-items {
     padding-top:0px;
-    padding-bottom:80px !important
+    padding-bottom:100px !important
   }
 }
 
@@ -238,7 +245,6 @@ li {
 }
 
 /*MENU HOT DRINKS */
-
 .product-img-div {
   width:40%;
   display:flex;
@@ -311,6 +317,7 @@ li {
   border:none;
   background:none;
 }
+
 .product-title-div {
   margin-bottom: -40px;
 }
@@ -342,10 +349,91 @@ li {
   }
 }
 
-.fa-plus-circle,
-.fa-minus-circle {
+/*BASKET*/
+
+.basket {
+  width: 100%;
+  margin-top:100px
+}
+
+.basket-product {
+  display: block;
+  margin: 10px 0px
+}
+
+.delete-product-btn {
+  display: inline-block
+}
+
+.basket-child-container {
+  width: 100%;
+  height: inherit;
+}
+
+.basket-ul {
+  padding-left:0px;
+}
+.product-headers-name {
+  width: 100px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left:5px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 1rem;
+}
+
+.product-headers {
+  margin:10px;
+  width:50px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left:5px
+}
+
+.product-name-basket {
+  width: 100px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-left:5px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.7rem;
+
+}
+
+.product-price-basket,
+.product-qyt-basket,
+.product-total-basket {
+  margin:10px;
+  width:50px;
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  font-size: 0.7rem;
+  margin-left: 5px
+}
+
+.header-basket {
+  text-align: center;
+}
+
+.delete-item-button {
+  display: inline-block;
+  border:none;
+  background-color:none
+}
+
+.fa-plus-circle {
   color: #00653e;
-  font-size: 1.2rem
+  font-size: 1.5rem
+}
+
+.fa-minus-circle {
+  color:#e31837;
+  font-size: 1.5rem
 }
 
 .Page404 {
@@ -372,7 +460,116 @@ li {
   opacity: 0.4
 }
 
-.Success {
+
+.delete-btn {
+  border:none;
+  background:none
+}
+
+.basket-header {
+  margin-top:100px;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 2.5rem;
+  font-weight: 300;
+  font-family: 'Arimo', sans-serif;
+  color:rgba(0,0,0,.9)
+}
+
+::-webkit-scrollbar {
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
+}
+/* optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}
+
+.modal-pay-btn {
+  border:none;
+  background:#00653e;
+  color:#fff;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  font-family: 'Arimo', sans-serif;
+}
+
+.model-form {
+
+}
+
+.model-form-header {
+  color:#000;
+  margin-top:30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-family: 'Arimo', sans-serif;
+}
+
+.ReactModal__Content {
+  background-color: #f7f7f7!important;
+  border: none!important;
+  border-radius:none!important;
+  font-family: 'Rajdhani', sans-serif!important;
+  font-size: 1rem!important;
+  font-weight: 900!important;
+  line-height: 1!important;
+  padding-top: 10px!important;
+  text-transform: uppercase!important;
+  letter-spacing: 1.799px!important;
+}
+
+.form-custom-style {
+  background-color: #f7f7f7!important;
+  border:none
+}
+
+.form-control{
+  border:none;
+}
+
+.input.form-control:focus,
+.select.form-control:focus,
+.textarea.form-control:focus,
+.button.form-control:focus {
+  outline: none;
+  
+}
+
+.total-price{
+  font-family: 'Rajdhani', sans-serif!important;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.799px;
+}
+
+.pay-products {
+  margin-left:5px;
+}
+
+.test {
+  margin:50px
+}
+.model-close-btn {
+  background-color:#00653e;
+  color:#fff;
+  height:32px;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 0px;
+  border-radius: 4px;
+  font-size:14px;
+  line-height: 15px;
+}
+
+/* .Success {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -386,4 +583,5 @@ li {
 .About {
   position: absolute;
   top: 20%;
-}
+} */
+

@@ -10,8 +10,8 @@ class Menu extends Component {
     this.state = {
       items: [],
       basquet: {},
-      currentChoice: 'hot drink',
-      active: 'hot',
+      currentChoice: "drink",
+      active: "cold",
       userDetails: {
         id: 'NaN',
         user_name: "",
@@ -175,6 +175,21 @@ class Menu extends Component {
 
   handleSubmitButton() {
     let newOrder = Object.values(this.state.basquet)
+
+
+    // .map((item) => {
+    //   return {
+    //     type: "food",
+    //     name: item.name,
+    //     extras: [],
+    //     price: item.price,
+    //     quantity: item.quantity,
+    //     inStock: true,
+    //     allergens: item.allergens
+    //   }
+    // })
+
+
     let user = this.state.userDetails
     let message = this.state.message
 

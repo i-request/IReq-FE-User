@@ -11,21 +11,28 @@ class Basket extends Component {
 
   render() {
     let total = 0;
-    return (
-      <div className='Basket box column is-one-third'>
-        <ul>
+  if(Object.values(this.props.basquet).length>0)
+      {return (
+        <div className='basket'>
+            <div className="basket-headers">
+              <li className="product-headers-name">Product</li>
+              <li className="product-headers">Price</li>
+              <li className="product-headers">QTY</li>
+              <li className="product-headers">Total</li>
+            </div>
+          <ul className="basket-ul">
 
           {Object.keys(this.props.basquet).map((productName, i) => {
             const product = this.props.basquet[productName]
             const quantity = product.quantity;
             total += quantity * product.price
-            if (quantity >= 1){ 
+            if (quantity >= 1){
             return (
-              <div key={i} className='level columns'>
-                <li className='level-item column is-half'>{product.name}</li>
-                <li className='level-item column'>{'£' + (product.price / 100).toFixed(2)}</li>
-                <li className='level-item column'>{quantity}</li>
-                <li className='level-item column'>{'£' + (quantity * product.price / 100).toFixed(2)}</li>
+              <div key={i} className='basket-product'>
+                <li className='product-name-basket'>{product.name}</li>
+                <li className='product-price-basket'>{'£' + (product.price / 100).toFixed(2)}</li>
+                <li className='product-qyt-basket'>{quantity}</li>
+                <li className='product-total-basket'>{'£' + (quantity * product.price / 100).toFixed(2)}</li>
                 <SubtractButton
                   itemName={product.name}
                   handleSubtractButton={this.props.handleSubtractButton}
@@ -33,8 +40,8 @@ class Basket extends Component {
               </div>
             )}
           })}
-          <div className='total level'>
-            <li className='level-item'>Total: {'£' + (total / 100).toFixed(2)}</li>
+          <div className='pay-products'>
+            <li className='total-price'>Total: {'£' + (total / 100).toFixed(2)}</li>
             <CheckoutModal
             name={'iRequest'}
             description={'Enjoy your food!'}
@@ -45,11 +52,13 @@ class Basket extends Component {
             handleMessage ={this.props.handleMessage}
             />
           </div>
-         
+
 
         </ul>
-      </div>
-    );
+        </div>
+    )}
+      else return <h1 className="basket-header"> Basket </h1>
+    ;
   }
 
   handleClick() {
