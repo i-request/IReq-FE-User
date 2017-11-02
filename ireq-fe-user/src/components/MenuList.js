@@ -38,7 +38,7 @@ class MenuList extends Component {
             : {}}>Drink</h3>
         </button>
 
-        <div>
+        <div className="test">
           {this.props.items.map((item, i) => (<MenuItem key={i} imgUrl={item.imgUrl} itemName={item.name} itemPrice={item.price} itemAller ={item.allergens} itemDescription={item.description} handleAddClick={this.props.handleAddClick}/>))}
         </div>
       </div>

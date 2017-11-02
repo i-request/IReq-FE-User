@@ -10,8 +10,8 @@ class Menu extends Component {
     this.state = {
       items: [],
       basquet: {},
-      currentChoice: 'hot drink',
-      active: 'cold',
+      currentChoice: "drink",
+      active: "cold",
       userDetails: {
         id: 'NaN',
         user_name: "",

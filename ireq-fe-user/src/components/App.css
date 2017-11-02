@@ -21,6 +21,10 @@ li {
   list-style: none;
 }
 
+textarea {
+    resize: none;
+}
+
 /*MAIN NAV*/
 
 .main-nav {
@@ -465,16 +469,101 @@ li {
   margin-top:100px;
   text-transform: uppercase;
   letter-spacing: 1.3px;
-  font-size: 2.9rem;
+  font-size: 2.5rem;
   font-weight: 300;
-    font-family: 'Arimo', sans-serif;
+  font-family: 'Arimo', sans-serif;
+  color:rgba(0,0,0,.9)
 }
 
 ::-webkit-scrollbar {
-    width: 0px;  /* remove scrollbar space */
-    background: transparent;  /* optional: just make scrollbar invisible */
+  width: 0px;  /* remove scrollbar space */
+  background: transparent;  /* optional: just make scrollbar invisible */
 }
 /* optional: show position indicator in red */
 ::-webkit-scrollbar-thumb {
-    background: #FF0000;
+  background: #FF0000;
+}
+
+.modal-pay-btn {
+  border:none;
+  background:#00653e;
+  color:#fff;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 0.8rem;
+  font-weight: 300;
+  font-family: 'Arimo', sans-serif;
+}
+
+.model-form {
+
+}
+
+.model-form-header {
+  color:#000;
+  margin-top:30px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-family: 'Arimo', sans-serif;
+}
+
+.ReactModal__Content {
+  background-color: #f7f7f7!important;
+  border: none!important;
+  border-radius:none!important;
+  font-family: 'Rajdhani', sans-serif!important;
+  font-size: 1rem!important;
+  font-weight: 900!important;
+  line-height: 1!important;
+  padding-top: 10px!important;
+  text-transform: uppercase!important;
+  letter-spacing: 1.799px!important;
+}
+
+.form-custom-style {
+  background-color: #f7f7f7!important;
+  border:none
+}
+
+.form-control{
+  border:none;
+}
+
+.input.form-control:focus,
+.select.form-control:focus,
+.textarea.form-control:focus,
+.button.form-control:focus {
+  outline: none;
+  
+}
+
+.total-price{
+  font-family: 'Rajdhani', sans-serif!important;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1;
+  padding-top: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1.799px;
+}
+
+.pay-products {
+  margin-left:5px;
+}
+
+.test {
+  margin:50px
+}
+.model-close-btn {
+  background-color:#00653e;
+  color:#fff;
+  height:32px;
+  box-shadow: rgba(255, 255, 255, 0.25) 0px 1px 0px inset;
+  text-shadow: rgba(0, 0, 0, 0.25) 0px -1px 0px;
+  border-radius: 4px;
+  font-size:14px;
+  line-height: 15px;
 }

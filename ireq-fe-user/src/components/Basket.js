@@ -43,7 +43,7 @@ class Basket extends Component {
             )}
           })}
           <div className='pay-products'>
-            <li className=''>Total: {'£' + (total / 100).toFixed(2)}</li>
+            <li className='total-price'>Total: {'£' + (total / 100).toFixed(2)}</li>
             <CheckoutModal
             name={'iRequest'}
             description={'Enjoy your food!'}
