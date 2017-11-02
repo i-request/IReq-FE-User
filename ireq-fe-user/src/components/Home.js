@@ -9,9 +9,6 @@ const animate = (val) => spring(val, {
 });
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className='segmenter'>
@@ -25,10 +22,13 @@ class Home extends Component {
                 opacity: animate(1)
               }}>
               {({ letterSpacing, opacity }) => 
-                <h1 style={{
+                <div style={{
                   letterSpacing,
                   opacity
-                }}>WELCOME</h1> 
+                }}>
+                <h1>WELCOME</h1>
+                <h2><Link to='/menu'>Visit our MENU</Link></h2>
+                </div> 
               }
             </Motion>
           </div>
