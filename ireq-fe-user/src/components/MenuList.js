@@ -30,7 +30,8 @@ class MenuList extends Component {
       </button>
 
       <div>
-        {this.props.items.map((item, i) => (
+        {this.props.items.reduce((acc, item, i) => {
+          let menuItem = (
           <MenuItem
             key={i}
             imgUrl={item.imgUrl}
@@ -44,8 +45,11 @@ class MenuList extends Component {
             temperature={item.temperature}
             handleAddClick={this.props.handleAddClick}
 
-          />
-        ))}
+          />)
+          if (item.inStock === true) acc.push(menuItem);
+          return acc;
+           return
+        }, [])}
       </div>
     </div>
     );
