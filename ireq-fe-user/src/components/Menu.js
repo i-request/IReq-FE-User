@@ -94,7 +94,7 @@ class Menu extends Component {
 
   itemsFilter(items) {
     return items.filter((item) => {
-      return item.type === this.state.currentChoice
+      return item.type === this.state.currentChoice && item.inStock === true
     });
   }
 
