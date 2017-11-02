@@ -175,11 +175,9 @@ class Menu extends Component {
 
   handleSubmitButton() {
     let newOrder = Object.values(this.state.basquet)
-
-
     // .map((item) => {
     //   return {
-    //     type: "food",
+    //     type: "drink",
     //     name: item.name,
     //     extras: [],
     //     price: item.price,

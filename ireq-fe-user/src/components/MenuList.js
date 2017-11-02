@@ -40,7 +40,11 @@ class MenuList extends Component {
         </button>
 
         <div className="test">
-          {this.props.items.map((item, i) => (<MenuItem key={i} imgUrl={item.imgUrl} itemName={item.name} itemPrice={item.price} itemAller ={item.allergens} itemDescription={item.description} handleAddClick={this.props.handleAddClick}/>))}
+          {this.props.items.map((item, i) => (<MenuItem 
+          key={i} 
+          imgUrl={item.imgUrl} 
+          itemName={item.name} 
+          itemPrice={item.price} itemAller ={item.allergens} itemDescription={item.description} handleAddClick={this.props.handleAddClick}/>))}
         </div>
 {/* 
 //       <button className="hot product-div btn btn-light" onClick={this.props.handleDrinkChange} value='hot drink' style={this.props.active.includes('hot') ? activeStyle : {}}>
