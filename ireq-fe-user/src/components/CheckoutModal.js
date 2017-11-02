@@ -1,8 +1,7 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import Checkout from './Checkout'
-import StripeCheckout from 'react-stripe-checkout';
+
 
 const customStyles = {
   content: {

@@ -460,6 +460,7 @@ textarea {
   opacity: 0.4
 }
 
+
 .delete-btn {
   border:none;
   background:none
@@ -567,3 +568,20 @@ textarea {
   font-size:14px;
   line-height: 15px;
 }
+
+/* .Success {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(http://blog.cardsdirect.com/wp-content/uploads/2017/04/Thank-You.jpg);
+  background-size: cover; 
+}
+
+
+.About {
+  position: absolute;
+  top: 20%;
+} */
+

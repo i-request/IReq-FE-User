@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MenuList from './MenuList';
 import Basket from './Basket'
-import CheckoutModal from './CheckoutModal'
+
 
 class Menu extends Component {
   constructor(props) {
@@ -174,8 +174,8 @@ class Menu extends Component {
   }
 
   handleSubmitButton() {
-    //name,price,quantity:1
     let newOrder = Object.values(this.state.basquet)
+
 
     // .map((item) => {
     //   return {
@@ -189,6 +189,7 @@ class Menu extends Component {
     //   }
     // })
 
+
     let user = this.state.userDetails
     let message = this.state.message
 
@@ -199,7 +200,6 @@ class Menu extends Component {
         basquet: {}
       })
     }
-
     console.log('There is nothing in the basquet!')
   }
 
@@ -219,6 +219,5 @@ class Menu extends Component {
       });
   }
 }
-
 
 export default Menu;

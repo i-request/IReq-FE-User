@@ -5,7 +5,6 @@ class MenuItem extends Component {
   render() {
     const itemName = this.props.itemName;
     const itemPrice = '£' + (this.props.itemPrice / 100).toFixed(2)
-    const itemDescription = this.props.itemDescription;
     const imgUrl = this.props.imgUrl;
     return (
       <div className='product-div-inner-section'>
